@@ -1,0 +1,57 @@
+body {
+    padding-top: 70px;
+    background-color: #E7E7E7;
+}
+
+.navbar {
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-size: 14pt;
+}
+
+.navbarLogo {
+    background-image: url(../img/logo/logoMonimmobilier.png);
+    padding: 0px 66px 0px 66px;
+}
+
+.navbar-default {
+    background-color: #253746 ;
+    border-top-color: #253746;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: #E7E7E7;
+    color: #253746;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: rgba(0, 0, 0, 0);
+    color: #ED2A7B ;/*Rose vivid*/
+}
+.navbar-default .navbar-nav > li > a {
+    color: #FFFFFF;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    background-color: #253746;
+    color: #FFFFFF;
+}
+
+.dropdown-menu {
+    background-color: #E7E7E7;
+}
+.divCreerCompte {
+    padding: 0px 0px 0px 5px;
+}
+.divCreerCompte > a{
+    color: #FFFFFF;
+}
+.divCreerCompte:hover > a{
+    color: #ED2A7B;
+    text-decoration: none;
+}
+.divCreerCompte > a > p{
+    font-size: 8pt;
+    line-height: 15px;
+    padding: 0px;
+    margin: 0px;
+}

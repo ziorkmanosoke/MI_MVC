@@ -1,0 +1,580 @@
+/**
+ * CSS main.css 
+ * Les styles personnalisés pour monimmobilier.ca
+ * @author Mehdi Ghazisaeedi
+ * @version 1.0
+ * @update 2014-06-15
+ */
+
+/* ==========================================================================
+   body
+   ========================================================================== */
+
+html {
+    min-height: 100%;
+    position: relative;
+}
+body {
+    color: #4C4A4A;
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-size: 12pt;
+}
+.domain {
+    color:#ED2A7B;
+}
+.brand {
+    padding: 10px 0px;
+    color: #253746;
+}
+
+/* ==========================================================================
+   #resultat
+   ========================================================================== */
+
+#resultat > div > div {
+    background-color: #CCCCCC;
+    padding: 10px;
+}
+.panel-resultat > .panel-body {
+    background-color: #E7E7E7;
+}
+.panel-resultat > .panel-body:hover {
+    background-color: #253746;
+}
+.panel-resultat > .panel-body > p {
+    text-align: center;
+    padding: 0px;
+    margin: 5px 0px 0px 0px;
+}
+
+/*panel-resultat*/
+.panel-resultat {
+    border-color: #253746;
+}
+.panel-resultat > .panel-heading {
+    background-image: linear-gradient(to bottom, #253746 0px, #253746 100%);
+    background-repeat: repeat-x;
+    background-color: #253746;
+    border-bottom-color: #253746;
+    border-top-color: #253746;
+    color: #FFFFFF;
+}
+.panel-adresseL1 {
+    color: #FFFFFF;
+    font-size: 16px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.panel-adresseL2 {
+    color: #ED2A7B;
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.panel-resultat > .panel-body > a > img{
+    width: 100%;
+    padding-bottom: 10px;
+}
+#wc{
+    padding: 0px 5px 0px 80px;
+}
+#lit{
+    padding: 0px 5px 0px 10px;
+}
+#page {
+    text-align: center;
+}
+.pagination > li > a, .pagination > li > span {
+    color: #253746;
+}
+.pagination > li > a:hover, .pagination > li > span:hover {
+    color: #ED2A7B;
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color: #ED2A7B;
+    border-bottom-color: #ED2A7B;
+    border-top-color: #ED2A7B;
+    color: #fff;
+    cursor: default;
+    z-index: 2;
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    border-left-color: #ED2A7B;
+    border-right-color: #ED2A7B;
+}
+
+/* ==========================================================================
+   #details
+   ========================================================================== */
+
+.detailsHeader{
+    background-color: #253746;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #E6E7E8;
+    padding: 20px;
+}
+.p16 {
+    font-size: 16pt;
+}
+.p14 {
+    font-size: 14pt;
+}
+.p12 {
+    font-size: 12pt;
+}
+.detailsHeader img {
+    padding: 0px 5px;
+}
+@media all and (max-width: 768px) {
+    /*uniquement pour les appareils mobiles*/
+    .inv {
+        display: none;
+    }
+}
+.detailsBody{
+    background-color: #CCCCCC;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 20px 10px;
+}
+.detailsBody h1{
+    text-align: center;
+    padding: 10px 0px;
+    color: #253746;
+}
+.sidebar{
+    background-color: #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.sidebar > article {
+    padding: 10px 0px;
+}
+.tab-content {
+    border-bottom: 1px solid #DDDDDD;
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    background-color: #FFFFFF;
+    padding-top: 30px;
+    height: 350px;
+}
+
+.nav-tabs a {
+    color: #4C4A4A;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #ED2A7B;
+}
+.tab-content article > p {
+    padding: 25px;
+}
+/*panel-courtier*/
+.panel-courtier {
+    border-color: #fa3065;
+}
+.panel-courtier > .panel-heading {
+    background-image: linear-gradient(to bottom, #fa3065 0px, #f45c84 100%);
+    background-repeat: repeat-x;
+    background-color: #fa3065;
+    border-bottom-color: #fa3065;
+    border-top-color: #fa3065;
+    color: #FFFFFF;
+}
+.panel-courtier img {
+    padding-right: 25px;
+    width: 150px;
+}
+/*panel-similaires*/
+.panel-similaires {
+    border-color: #00BCC7;
+}
+.panel-similaires > .panel-heading {
+    background-image: linear-gradient(to bottom, #00BCC7 0px, #1FE8FF 100%);
+    background-repeat: repeat-x;
+    background-color: #00BCC7;
+    border-bottom-color: #00BCC7;
+    border-top-color: #00BCC7;
+    color: #FFFFFF;
+}
+.panel-similaires img {
+    padding-right: 25px;
+    padding-bottom: 25px;
+    width: 150px;
+}
+
+/* ==========================================================================
+   #Les panneaux
+   ========================================================================== */
+.panneaux {
+    padding: 5px 0px 0px 0px;
+}
+.panel:hover > .panel-heading {
+    cursor: pointer;
+}
+.panel-body {
+    background-color: #FFFFFF;
+}
+@media all and (max-width: 768px) {
+    /*uniquement pour les appareils mobiles*/
+    .panel-acheter > .panel-body {
+        display: none;
+    }
+    .panel:hover .panel-body {
+        display: block;
+    }
+}
+@media all and (max-width: 768px) {
+    /*uniquement pour les appareils mobiles*/
+    .panel-vendre > .panel-body {
+        display: none;
+    }
+    .panel:hover .panel-body {
+        display: block;
+    }
+}
+@media all and (max-width: 768px) {
+    /*uniquement pour les appareils mobiles*/
+    .panel-apropos > .panel-body {
+        display: none;
+    }
+    .panel:hover .panel-body {
+        display: block;
+    }
+}
+.panel-body > ul {
+    list-style: none;
+}
+.panel-acheter > .panel-body:hover, .panel-vendre > .panel-body:hover, .panel-apropos > .panel-body:hover {
+    background-color: #253746;
+    color: #7D7B7B;
+}
+.panel-body > ul > li > a:link {
+    text-decoration: none;
+    color: inherit;
+}
+.panel-body > ul > li > a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+.panel-body > ul > li > a:hover {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.panel-body > ul > li > a:active {
+    text-decoration: none;
+    color: inherit;
+}
+.panel-acheter > .panel-body > ul:hover, .panel-vendre > .panel-body > ul:hover, .panel-apropos > .panel-body > ul:hover {
+    background-color: #253746;
+}
+
+/*panel-acheter*/
+.panel-acheter {
+    border-color: #fa3065;
+}
+.panel-acheter > .panel-heading {
+    background-image: linear-gradient(to bottom, #fa3065 0px, #f45c84 100%);
+    background-repeat: repeat-x;
+    background-color: #fa3065;
+    border-bottom-color: #fa3065;
+    border-top-color: #fa3065;
+    color: #FFFFFF;
+}
+.panel-acheter > .panel-body > ul > li:before {
+    font-family: 'FontAwesome';
+    content: '\f138';
+    margin: 0 5px 0 -20px;
+    color: #fa3065;
+}
+
+/*panel-vendre*/
+.panel-vendre {
+    border-color: #00BCC7;
+}
+.panel-vendre > .panel-heading {
+    background-image: linear-gradient(to bottom, #00BCC7 0px, #1FE8FF 100%);
+    background-repeat: repeat-x;
+    background-color: #00BCC7;
+    border-bottom-color: #00BCC7;
+    border-top-color: #00BCC7;
+    color: #FFFFFF;
+}
+.panel-vendre > .panel-body > ul > li:before {
+    font-family: 'FontAwesome';
+    content: '\f138';
+    margin: 0 5px 0 -20px;
+    color: #00BCC7;
+}
+
+/*panel-apropos*/
+.panel-apropos {
+    border-color: #888888;
+}
+.panel-apropos > .panel-heading {
+    background-image: linear-gradient(to bottom, #888888 0px, #CCCCCC 100%);
+    background-repeat: repeat-x;
+    background-color: #888888;
+    border-bottom-color: #888888;
+    border-top-color: #888888;
+    color: #FFFFFF;
+}
+.panel-apropos > .panel-body > ul > li:before {
+    font-family: 'FontAwesome';
+    content: '\f138';
+    margin: 0 5px 0 -20px;
+    color: #888888;
+}
+/* ==========================================================================
+   article
+   ========================================================================== */
+#monimmobilierLogo {
+    width: 100%;
+    height: auto;
+    padding: 20px 0px;
+}
+
+/* ==========================================================================
+   asid
+   ========================================================================== */
+.list-group-item > div > div > a {
+    line-height: 60px;
+    color: #4C4C4C;
+}
+
+.date{
+    font-size: 30pt;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+.mois{
+    padding: 0px 0px 0px 10px;
+}
+
+
+/* ==========================================================================
+   #carousel
+   ========================================================================== */
+/*Source: http://webdesign.tutsplus.com/articles/twitter-bootstrap-101-the-carousel--webdesign-7442*/
+@media all and (max-width: 768px) {
+    /*uniquement pour les appareils mobiles*/
+    #carrouselPhotos {
+        display: none;
+    }
+}
+.carousel-caption {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #253746;
+    /*Fall back*/
+    background-color: rgba(11, 21, 31, 0.75);
+    /*Changer pour blue*/
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    position: absolute;
+    right: 0;
+}
+.carousel-control {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #222222;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    color: #FFFFFF;
+    font-size: 60px;
+    font-weight: 100;
+    height: 40px;
+    line-height: 30px;
+    margin-top: -20px;
+    opacity: 0.5;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    /*hauteur de la flèche*/
+    width: 40px;
+}
+.carousel-control:hover {
+    -moz-text-decoration-color: -moz-use-text-color;
+    -moz-text-decoration-line: none;
+    -moz-text-decoration-style: solid;
+    color: #FFFFFF;
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   #recherche
+   ========================================================================== */
+
+ #recherche {
+    padding: 10px 0px;
+    background-color: #253746;
+    color: #FFFFFF;
+}
+#lancerRecherche {
+    margin: 10px 0px;
+}
+/* ==========================================================================
+   button
+   ========================================================================== */
+
+.btn-default {
+    color: #FFFFFF;
+    text-shadow: none;
+    /* Prevent inheritence from `body` */
+    background-color: #00BCC7;
+    /*Cyan forte*/
+    border: 1px solid #00BCC7;
+}
+.btn-default:hover,
+.btn-default:focus {
+    color: #253746;
+    outline: none;
+    text-shadow: none;
+    background-color: #1FE8FF;
+    /*Cyan vivid*/
+    border: 1px solid #1FE8FF;
+}
+.btn-default:active, 
+.btn-default.active, 
+.open .dropdown-toggle.btn-default {
+    background-color: #EBEBEB;
+    border-bottom-color: #ADADAD;
+    border-top-color: #ADADAD;
+    color: #333333;
+}
+.btn:active, 
+.btn.active {
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
+    outline-color: -moz-use-text-color;
+    outline-style: none;
+    outline-width: 0;
+}
+
+.btn-success {
+    color: #FFFFFF;
+    text-shadow: none;
+    /* Prevent inheritence from `body` */
+    background-color: #f45c84;
+    /*light red forte*/
+    border: 1px solid #f45c84;
+}
+.btn-success:hover,
+.btn-success:focus {
+    color: #253746;
+    outline: none;
+    text-shadow: none;
+    background-color: #fa3065;
+    /*light red vivid*/
+    border: 1px solid #fa3065;
+}
+.btn-success:active, 
+.btn-success.active, 
+.open .dropdown-toggle.btn-success {
+    background-color: #EBEBEB;
+    border-bottom-color: #ADADAD;
+    border-top-color: #ADADAD;
+    color: #333333;
+}
+/* ==========================================================================
+   well
+   ========================================================================== */
+.choixForfais .well p{
+    margin: 10px 0px;
+}
+@media all and (min-width: 992px) {
+    .choixForfais .well div {
+        height: 150px;
+    }
+}
+
+
+/* ==========================================================================
+   /*--Modals--*/
+/*   ========================================================================== */
+#myModal1 .modal-header,
+#redigez .modal-header,
+#myModal2 .modal-header {
+    background-color: #253746;
+    color: #FFFFFF;
+}
+#myModal1 .btn,
+#redigez .btn,
+#myModal2 .btn {
+    background-color: #253746;
+    color: #FFFFFF;
+}
+/*--Fix pour glyphicons---*/
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../blog/fonts/glyphicons-halflings-regular.eot');
+    src: url('../blog/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../blog/fonts/glyphicons-halflings-regular.woff') format('woff'), url('../blog/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../blog/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+@media all and (max-width: 768px) {
+    /*uniquement pour les appareils mobiles*/
+    footer {
+        text-align: center;
+    }
+}
+footer {
+    background-color: #253746;
+    bottom: 0;
+    color:  #9E9E9E;
+    left: 0;
+    right: 0;
+    position: relative;
+    width: 100%;
+    font-size: 14px;
+    margin: 0px;
+    padding: 5px 0px 0px 0px;
+}
+footer h1{
+    font-size: 16px;
+    color: #FFFFFF;
+    margin: 0px;
+    padding: 10px 0px;
+}
+footer p {
+    margin: 0px;
+    padding: 0px;
+}
+footer ul {
+    margin: 0px;
+    padding: 0px;
+}
+footer ul {
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+}
+footer > div > div > div > ul > li {
+    display: inline-block;
+}
+footer  a {
+    color: #9E9E9E;
+    /*Gris*/
+}
+footer a:hover {
+    color: #ED2A7B ;/*Rose vivid*/
+    text-decoration: none;
+}
+#copyright{
+    text-align: center;
+    padding: 10px 0px;
+}
