@@ -21,17 +21,21 @@ class Controler
         public function gerer()
         {
            
+                
                 switch ($_GET['page']) {
                         case 'accueil':
                                 $this->afficherAccueil();
                                 break;
+                        case 'creerCompte':
+                                $this->creationCompte();
+                                break; 
                         case 'forfait':
                                 $this->afficherForfait();
                                 break; 
                          case 'blog':
                                 $this->afficherBlog();
                                 break;  
-                            
+                          
                             
                         default:
                                 $this->afficherAccueil();
@@ -48,12 +52,20 @@ class Controler
 
             $page = new Accueil();
             $page->afficheContenuAccueil();
-                
-
-                
             
         }
 
+            private function creationCompte() {
+            
+            $oNav = new Nav();
+            $oNav->afficheNavigateur('');
+            
+            $page = new creerCompte();
+            $page->afficheCreerCompte();
+            
+
+        }
+        
         private function afficherForfait() {
             
             $oNav = new Nav();
@@ -81,40 +93,207 @@ class Controler
         
         
     /****************************** Back office : Agence immobilière ********/
-    private function gererAgenceImmobiliere(){
-
-        if(isset($_GET['page'])){
-            switch ($_GET['page']) {
+    public function gererAgenceImmobiliere(){
+        
+            switch ($_GET['section']) {
 
                 case 'agenceAccueil':
                     $this->agenceAccueil();
                     break;
-
+                case 'ResponsableAgence':
+                    $this->profilResponsableAgence();
+                    break;
+                case 'infosAgence':
+                    $this->informationAgence();
+                    break;
+                case 'statut':
+                    $this->statutAgence();
+                    break;
+                case 'plusVisite':
+                    $this->annoncePlusVisite();
+                    break;
+                case 'alerte':
+                    $this->mesAlertes();
+                    break;                
+                case 'demandeur':
+                    $this->demandeurBien();
+                    break; 
+                case 'ajoutAnnonce':
+                    $this->ajouterAnnonce();
+                    break;
+                case 'visionner':
+                    $this->visionnerAnnonce();
+                    break;
+                 case 'modifier':
+                    $this->modifierAnnonce();
+                    break;
+                
                 default:
                     $this->agenceAccueil();
                     break;
-            }
-        }else{
-            //$this->interfaceLogin();
-        }
-    }  
-      
+            }       
+    }        
     private function agenceAccueil()
-    {
+    { 
+        $oNav = new Nav();
+        $oNav->afficheNavigateur();
+        
+        $oHeaderAgence = new HeaderAgence();
+        $oHeaderAgence->AfficheHeaderAgence();
+        
+   
+        $oNavAgence= new NavAgence();
+        $oNavAgence->afficheNavAgence('agenceAccueil');
+   
         $page = new agenceAccueil();
         $page->afficheAgenceAccueil();
     }
+    
+    
+    private function profilResponsableAgence()
+    { 
+        $oNav = new Nav();
+        $oNav->afficheNavigateur();
+        
+        $oHeaderAgence = new HeaderAgence();
+        $oHeaderAgence->AfficheHeaderAgence();
+        
+   
+        $oNavAgence= new NavAgence();
+        $oNavAgence->afficheNavAgence('ResponsableAgence');
+   
+        $page = new ProfilResponsableAgence();
+        $page->afficheProfilResponsable();
+    }
 
-       
+    private function informationAgence()
+    { 
+        $oNav = new Nav();
+        $oNav->afficheNavigateur();
+        
+        $oHeaderAgence = new HeaderAgence();
+        $oHeaderAgence->AfficheHeaderAgence();
+        
+   
+        $oNavAgence= new NavAgence();
+        $oNavAgence->afficheNavAgence('infosAgence');
+   
+        $page = new infosAgence();
+        $page->afficheInformationAgence();
+    }
+
+    private function statutAgence()
+    { 
+        $oNav = new Nav();
+        $oNav->afficheNavigateur();
+        
+        $oHeaderAgence = new HeaderAgence();
+        $oHeaderAgence->AfficheHeaderAgence();
+        
+   
+        $oNavAgence= new NavAgence();
+        $oNavAgence->afficheNavAgence('statut');
+   
+        $page = new statutAgence();
+        $page->afficheStatutAgence();
+    }
+
+    private function annoncePlusVisite()
+    { 
+        $oNav = new Nav();
+        $oNav->afficheNavigateur();
+        
+        $oHeaderAgence = new HeaderAgence();
+        $oHeaderAgence->AfficheHeaderAgence();
+        
+   
+        $oNavAgence= new NavAgence();
+        $oNavAgence->afficheNavAgence('plusVisite');
+   
+        $page = new annonceVisite();
+        $page->afficheAnnonceVisite();
+    }
+
+    private function mesAlertes()
+    { 
+        $oNav = new Nav();
+        $oNav->afficheNavigateur();
+        
+        $oHeaderAgence = new HeaderAgence();
+        $oHeaderAgence->AfficheHeaderAgence();
+        
+   
+        $oNavAgence= new NavAgence();
+        $oNavAgence->afficheNavAgence('alerte');
+   
+        $page = new mesAlertes();
+        $page->afficheMesAlertes();
+    }
+    
+    private function demandeurBien(){
+        $oNav = new Nav();
+        $oNav->afficheNavigateur();
+        
+        $oHeaderAgence = new HeaderAgence();
+        $oHeaderAgence->AfficheHeaderAgence();
+        
+   
+        $oNavAgence= new NavAgence();
+        $oNavAgence->afficheNavAgence('demandeur');
+   
+        $page = new demandeursBien();
+        $page->afficheDemandeurBien();
+    }
+    
+    private function ajouterAnnonce(){
+
+        $oNav = new Nav();
+        $oNav->afficheNavigateur();
+        
+        $oHeaderAgence = new HeaderAgence();
+        $oHeaderAgence->AfficheHeaderAgence();
+        
+   
+        $oNavAgence= new NavAgence();
+        $oNavAgence->afficheNavAgence();
+   
+        $page = new ajouterAnnonce();
+        $page->formulaireAjoutAnnonce();        
+    }
+
+    private function visionnerAnnonce(){
+
+        $oNav = new Nav();
+        $oNav->afficheNavigateur();
+        
+        $oHeaderAgence = new HeaderAgence();
+        $oHeaderAgence->AfficheHeaderAgence();
+        
+   
+        $oNavAgence= new NavAgence();
+        $oNavAgence->afficheNavAgence();
+   
+        $page = new visionnerAnnonce();
+        $page->afficherAnnonce();        
+    } 
+ 
+     private function modifierAnnonce(){
+
+        $oNav = new Nav();
+        $oNav->afficheNavigateur();
+        
+        $oHeaderAgence = new HeaderAgence();
+        $oHeaderAgence->AfficheHeaderAgence();
+        
+   
+        $oNavAgence= new NavAgence();
+        $oNavAgence->afficheNavAgence();
+   
+        $page = new modifierAnnonce();
+        $page->formulaireModifierAnnonce();        
+    }
+
 }
-?>
-
-
-
-
-
-
-
 
 
 

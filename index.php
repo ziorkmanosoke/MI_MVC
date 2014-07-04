@@ -22,6 +22,11 @@
    /***************************************************/
     /** Gabarit **/
     /***************************************************/
-	require_once("./gabarit.projet.php");
+        if (isset($_GET['page']) and $_GET['page']=='agenceAccueil'){
+            require_once("./gabarit.agence.php");
+        } else {
+            require_once("./gabarit.projet.php");
+        }
+        
 
 ?>

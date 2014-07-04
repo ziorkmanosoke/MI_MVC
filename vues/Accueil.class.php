@@ -22,7 +22,7 @@ class Accueil {
 		?>
   
     <!-- recherche principale Début -->
-    <form id="recherche" role="form" action="fr/resultats.html">
+    <form id="recherche" action="fr/resultats.html">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">

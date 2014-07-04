@@ -13,7 +13,12 @@
 	{
 		$_GET['page'] = '';
 	}
-	
-   
-   
+        
+        if(empty($_GET['section']))
+	{
+		$_GET['section'] = '';
+	}
+         
+        
+        
 ?>

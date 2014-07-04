@@ -41,8 +41,9 @@ class Nav {
                          </a>
                      </li>
                  </ul>
-
-                 <form action="espaceAgences/index.php?page=agenceAccueil" class="navbar-form navbar-left" role="form">
+                 <?php if ($_GET['page']<>'agenceAccueil') { ?>
+                 
+                 <form action="index.php?page=agenceAccueil" class="navbar-form navbar-left" method="POST">
                      <div class="form-group">
                          <input type="text" placeholder="Courriel" class="form-control">
                      </div>
@@ -50,9 +51,13 @@ class Nav {
                          <input type="password" placeholder="Mot de passe" class="form-control">
                      </div>
                      <button type="submit" class="btn btn-success">Connexion</button>
-                     <div class="form-group divCreerCompte"><a href="fr/creationcompte.html"><p>Créer un</p><p>compte</p></a></div>
+                     <div class="form-group divCreerCompte">
+                         <a href="index.php?page=creerCompte"><p>Créer un</p><p>compte</p></a></div>
                  </form>
-            <!-- nav -->
+                 
+                 <?php } ?>
+                 
+                 <!-- nav -->
                     <nav>
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="dropdown <?php echo ($pageActive == 'accueil' ? 'active' : '' ) ?>">
@@ -97,7 +102,7 @@ class Nav {
                                     <a href="index.php?page=forfait">Nos Forfaits</a>
                                 </li>
                                 <li>
-                                    <a href="vues/espaceAgences/index.php?page=agenceAccueil">Contact</a>
+                                    <a href="#">Contact</a>
                                 </li>
                             </ul>
                         </nav>
