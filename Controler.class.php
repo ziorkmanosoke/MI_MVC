@@ -32,9 +32,15 @@ class Controler
                         case 'forfait':
                                 $this->afficherForfait();
                                 break; 
-                         case 'blog':
+                        case 'blog':
                                 $this->afficherBlog();
                                 break;  
+                        case 'choixForfait':
+                                $this->afficherChoixforfait();
+                                break;
+                        case 'infosCompte':
+                                $this->afficherInformationCompte();
+                                break;
                           
                             
                         default:
@@ -85,6 +91,28 @@ class Controler
             
             $page = new Blog();
             $page->afficheContenuBlog();
+            
+
+        }
+    
+        private function afficherChoixforfait() {
+          
+            $oNav = new Nav();
+            $oNav->afficheNavigateur();
+            
+            $page = new choixForfait();
+            $page->afficheChoixForfait();
+            
+
+        }
+    
+        private function afficherInformationCompte() {
+          
+            $oNav = new Nav();
+            $oNav->afficheNavigateur();
+            
+            $page = new infosCompte();
+            $page->afficheInformationCompte();
             
 
         }

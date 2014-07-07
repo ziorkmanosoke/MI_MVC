@@ -118,7 +118,7 @@ class creerCompte {
 
                     <article class="form-group">
                         <section class="col-sm-offset-2 col-sm-10">
-                            <button type="button" onClick="location.href='choixForfais.html'" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> Continuer</button>
+                            <button type="button" onClick="location.href='index.php?page=choixForfait'" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> Continuer</button>
                         </section>
                     </article>  
                 </form>       
