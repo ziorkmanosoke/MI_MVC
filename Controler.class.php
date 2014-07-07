@@ -42,10 +42,12 @@ class Controler
                     case 'validationForfait':
                             $this->validerFormulaire();
                             break;
-                
-
-
-                    default:
+                    case 'creerAgence':
+                            $this->creationAgence();
+                            break;
+                    
+                                
+                default:
                             $this->afficherAccueil();
                             break;
             }
@@ -119,9 +121,22 @@ class Controler
 
         }
     
+        private function creationAgence() {
+          
+            $oNav = new Nav();
+            $oNav->afficheNavigateur();
+            
+            $page = new creerAgence();
+            $page->afficheCreerAgence();
+            
+
+        }
+    
+        
+        
         public function validerFormulaire()
         {
-            $valide = new ConfirmationFormulaireInscription($_POST["nom"], $_POST["prenom"], hash('sha256', $_POST["mp"]), hash('sha256', $_POST["cmp"]), $_POST["sexe"], $_POST["dob"], $_POST["courriel"], $_POST["ville"], $_POST["province"]);
+            $valide = new ConfirmationFormulaireInscription($_POST["nom"], $_POST["prenom"], $_POST["mp"], $_POST["cmp"], $_POST["sexe"], $_POST["dob"], $_POST["courriel"], $_POST["ville"], $_POST["province"]);
 
          }
         
@@ -163,7 +178,6 @@ class Controler
                  case 'modifier':
                     $this->modifierAnnonce();
                     break;
-                
                 default:
                     $this->agenceAccueil();
                     break;

@@ -20,7 +20,7 @@ class ConfirmationFormulaireInscription {
         //$this->test($courriel);  
         //$this->test($ville); 
         //$this->test($province);
-        $validationNom $this->validationNomPrenom($nom, $prenom);
+        $validationNom = $this->validationNomPrenom($nom, $prenom);
         $motDePasse = $this->validationMotDePasse($mp, $cmp);
         
 	}
@@ -30,24 +30,58 @@ class ConfirmationFormulaireInscription {
         var_dump($i);
         echo "<br/>";
     }
-    
-	function __destruct ()
-	{
-		
-	}
-		
+	
 	/**
 	 * @access public
 	 * @return boolean
 	 */
-	public function validationNom($n) 
-	{
-        //for($i = 0; $i< $)
-	}
+   
+    /*source: http://www.phpsources.org/scripts609-PHP.htm*/
+    public function verificationAlpha($str){
+        preg_match("/([^A-Za-z])/",$str,$result);
+        //On cherche toutt les caractères autre que [A-z] 
+        if(!empty($result)){//si on trouve des caractère autre que A-z
+            return false;
+        }
+        return true;
+    }
+
+    /*source: http://www.phpsources.org/scripts609-PHP.htm*/
+    public function verificationAlphaNum($str){
+        preg_match("/([^A-Za-z0-9])/",$str,$result);
+        //On cherche tout les caractères autre que [A-Za-z] ou [0-9]
+        if(!empty($result)){//si on trouve des caractère autre que A-Za-z ou 0-9
+            return false;
+        }
+        return true;
+    }
+    
+    /*inspirer de: http://www.phpsources.org/scripts609-PHP.htm*/
+    public function verificationNum($str){
+        preg_match("/([^0-9])/",$str,$result);
+        //On cherche tout les caractères autre que [0-9]
+        if(!empty($result)){//si on trouve des caractère autre que 0-9
+            return false;
+        }
+        return true;
+    }
+    //[a-zA-Z0-9_-.+]+@[a-zA-Z0-9-]+.[a-zA-Z]+/
+    public function verificationEmail($str){
+        preg_match("/[a-zA-Z0-9_-.+]+@[a-zA-Z0-9-]+.[a-zA-Z]+/",$str,$result);
+        //On cherche tout les caractères autre que [0-9]
+        if(!empty($result)){//si on trouve des caractère autre que 0-9
+            return false;
+        }
+        return true;
+    }
+    
+    
+    
     
     public function validationMotDePasse($mp, $cmp)
     {
-        if ($mp == $cmp)
+        /*condition, si $mp et $cmp son pareil, ainsi que sil ne contienne que des valeur alphabetique et numerique*/
+        if (($mp == $cmp) && ($this->verificationAlphaNum($mp)) && ($this->verificationAlphaNum($cmp)))
         {
             return true;
         }

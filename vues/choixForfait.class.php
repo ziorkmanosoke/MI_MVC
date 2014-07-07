@@ -44,7 +44,7 @@ class choixForfait {
             
                 </p>
                 </div>
-                <p><a class="btn btn-default" href="index.php?page=infosAgence" role="button">Choisir</a></p>
+                <p><a class="btn btn-default" href="index.php?page=creerAgence" role="button">Choisir</a></p>
             </article>
         </section>
     </article>
