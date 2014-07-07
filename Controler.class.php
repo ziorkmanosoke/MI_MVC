@@ -19,34 +19,36 @@ class Controler
          * @return void
          */
         public function gerer()
-        {
-           
+        {   
+            switch ($_GET['page']) {
+                    case 'accueil':
+                            $this->afficherAccueil();
+                            break;
+                    case 'creerCompte':
+                            $this->creationCompte();
+                            break; 
+                    case 'forfait':
+                            $this->afficherForfait();
+                            break; 
+                    case 'blog':
+                            $this->afficherBlog();
+                            break;  
+                    case 'choixForfait':
+                            $this->afficherChoixforfait();
+                            break;
+                    case 'infosCompte':
+                            $this->afficherInformationCompte();
+                            break;
+                    case 'validationForfait':
+                            $this->validerFormulaire();
+                            break;
                 
-                switch ($_GET['page']) {
-                        case 'accueil':
-                                $this->afficherAccueil();
-                                break;
-                        case 'creerCompte':
-                                $this->creationCompte();
-                                break; 
-                        case 'forfait':
-                                $this->afficherForfait();
-                                break; 
-                        case 'blog':
-                                $this->afficherBlog();
-                                break;  
-                        case 'choixForfait':
-                                $this->afficherChoixforfait();
-                                break;
-                        case 'infosCompte':
-                                $this->afficherInformationCompte();
-                                break;
-                          
-                            
-                        default:
-                                $this->afficherAccueil();
-                                break;
-                }
+
+
+                    default:
+                            $this->afficherAccueil();
+                            break;
+            }
         
         }  
         
@@ -116,6 +118,12 @@ class Controler
             
 
         }
+    
+        public function validerFormulaire()
+        {
+            $valide = new ConfirmationFormulaireInscription($_POST["nom"], $_POST["prenom"], hash('sha256', $_POST["mp"]), hash('sha256', $_POST["cmp"]), $_POST["sexe"], $_POST["dob"], $_POST["courriel"], $_POST["ville"], $_POST["province"]);
+
+         }
         
         
         

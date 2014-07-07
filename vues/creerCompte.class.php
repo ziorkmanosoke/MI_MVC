@@ -18,12 +18,12 @@ class creerCompte {
         <!-- contient le formulaire d'inscription -->
             <h1 class="brand">Formulaire inscription.</h1>
             <article>
-                <form class="form-horizontal">     
+                <form class="form-horizontal" method="post" action="index.php?page=validationForfait">     
                     <!-- article qui contiendra le nom--> 
                     <article class="form-group ">
-                        <label for="inputNom" class="col-sm-2 control-label">Nom: </label>
+                        <label for="inputNom"  class="col-sm-2 control-label">Nom: </label>
                         <section class="col-sm-4">
-                            <input type="text" class="form-control" id="inputNom" placeholder="Votre Nom" required>
+                            <input type="text" class="form-control" id="inputNom" name="nom" placeholder="Votre Nom" >
                         </section>
                     </article>
 
@@ -31,7 +31,7 @@ class creerCompte {
                     <article class="form-group">
                         <label for="inputPrenom" class="col-sm-2 control-label">Prenom: </label>
                         <section class="col-sm-4">
-                            <input type="text" class="form-control" id="inputPrenom" placeholder="Votre Prenom">
+                            <input type="text" class="form-control" id="inputPrenom" name="prenom" placeholder="Votre Prenom">
                         </section>
                     </article>
 
@@ -39,7 +39,7 @@ class creerCompte {
                     <article class="form-group ">
                         <label for="inputMP" class="col-sm-2 control-label">Mot de passe: </label>
                         <section class="col-sm-4">
-                            <input type="text" class="form-control" id="inputMP" placeholder="Mot de passe" required>
+                            <input type="text" class="form-control" id="inputMP" name="mp" placeholder="Mot de passe" >
                         </section>
                     </article>
 
@@ -47,7 +47,7 @@ class creerCompte {
                     <article class="form-group ">
                         <label for="inputCMP" class="col-sm-2 control-label">Confirmation Mot de passe: </label>
                         <section class="col-sm-4">
-                            <input type="text" class="form-control" id="inputCMP" placeholder="Confirmation Mot de passe" required>
+                            <input type="text" class="form-control" id="inputCMP" name="cmp" placeholder="Confirmation Mot de passe" required>
                         </section>
                     </article>
 
@@ -75,7 +75,7 @@ class creerCompte {
                     <article class="form-group">
                         <label for="inputDoB" class="col-sm-2 control-label">Date de naissance: </label>
                         <section class="col-sm-4">
-                            <input type="date" class="form-control" id="inputDoB" placeholder="Votre date de naissance">
+                            <input type="date" name="dob" class="form-control" id="inputDoB" placeholder="Votre date de naissance">
                         </section>
                     </article>
 
@@ -83,7 +83,7 @@ class creerCompte {
                     <article class="form-group">
                         <label for="inputCourriel" class="col-sm-2 control-label">Courriel: </label>
                         <section class="col-sm-4">
-                            <input type="email" class="form-control" id="inputCourriel" placeholder="Votre courriel">
+                            <input type="email" name="courriel" class="form-control" id="inputCourriel" placeholder="Votre courriel">
                         </section>
                     </article>
 
@@ -91,7 +91,7 @@ class creerCompte {
                     <article class="form-group">
                         <label for="inputNomVille" class="col-sm-2 control-label">Nom de Ville: </label>
                         <section class="col-sm-4">
-                            <input type="text" class="form-control" id="inputNomVille" placeholder="Votre nom de ville">
+                            <input type="text" class="form-control" id="inputNomVille" name="ville" placeholder="Votre nom de ville">
                         </section>
                     </article>
 
@@ -99,7 +99,7 @@ class creerCompte {
                     <article class="form-group">
                         <label for="inputNomProvince" class="col-sm-2 control-label">Nom de Province: </label>
                         <section class="col-sm-4">
-                            <select class="form-control">
+                            <select class="form-control" name="province">
                                 <option>Ontario</option>
                                 <option>Québec</option>
                                 <option>Nouvelle-Écosse</option>
@@ -118,10 +118,12 @@ class creerCompte {
 
                     <article class="form-group">
                         <section class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" class="btn btn-success" value="Continuer"/>
                             <button type="button" onClick="location.href='index.php?page=choixForfait'" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> Continuer</button>
                         </section>
                     </article>  
                 </form>       
+        </article>
     </article>
 
 
