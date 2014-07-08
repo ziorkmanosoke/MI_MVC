@@ -33,7 +33,7 @@ class choixForfait {
                 Vous permet d'enregistrer votre bien immobilier et etre contacté directement par les demandeurs sans passé par les intermidiaires.
                 </p>
                 </div>
-                <p><a class="btn btn-default" href="index.php?page=infosAgence" role="button">Choisir</a></p>
+                <p><a class="btn btn-default" href="index.php?page=ForfaitParticulier" role="button">Choisir</a></p>
            </article>
             <article class="col-md-4">
                 <h2>Agence <br/>& intermidiaire</h2>

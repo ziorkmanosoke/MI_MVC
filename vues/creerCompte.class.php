@@ -39,7 +39,7 @@ class creerCompte {
                     <article class="form-group ">
                         <label for="inputMP" class="col-sm-2 control-label">Mot de passe: </label>
                         <section class="col-sm-4">
-                            <input type="text" class="form-control" id="inputMP" name="mp" placeholder="Mot de passe" >
+                            <input type="password" class="form-control" id="inputMP" name="mp" placeholder="Mot de passe" >
                         </section>
                     </article>
 
@@ -47,7 +47,7 @@ class creerCompte {
                     <article class="form-group ">
                         <label for="inputCMP" class="col-sm-2 control-label">Confirmation Mot de passe: </label>
                         <section class="col-sm-4">
-                            <input type="text" class="form-control" id="inputCMP" name="cmp" placeholder="Confirmation Mot de passe" required>
+                            <input type="password" class="form-control" id="inputCMP" name="cmp" placeholder="Confirmation Mot de passe" required>
                         </section>
                     </article>
 
@@ -75,7 +75,7 @@ class creerCompte {
                     <article class="form-group">
                         <label for="inputDoB" class="col-sm-2 control-label">Date de naissance: </label>
                         <section class="col-sm-4">
-                            <input type="date" name="dob" class="form-control" id="inputDoB" placeholder="Votre date de naissance">
+                            <input type="text" name="dob" class="form-control" id="inputDoB" placeholder="aaaa/mm/jj">
                         </section>
                     </article>
 
@@ -119,7 +119,7 @@ class creerCompte {
                     <article class="form-group">
                         <section class="col-sm-offset-2 col-sm-10">
                             <input type="submit" class="btn btn-success" value="Continuer"/>
-                            <button type="button" onClick="location.href='index.php?page=choixForfait'" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> Continuer</button>
+                            <!--<button type="button" onClick="location.href='index.php?page=choixForfait'" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> Continuer</button>-->
                         </section>
                     </article>  
                 </form>       

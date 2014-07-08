@@ -51,18 +51,7 @@
     .search-query:focus + button {
         z-index: 3;   
     }
-	
-	/*ajuster la section */
-     .addtocart{
-       margin-top: -5px;
-    }
-
-	/*Definir la taille du icon */
-    .addtocart img{
-        width: 150px;
-        height: 50px;
-    }
-	
+		
 	/*ajouter un bordure pour faire resortir cette section */
     .bordure1{
         border-radius: 10px;
@@ -91,11 +80,12 @@
         margin: 20px 0px;
         text-align: center;
         color: #FFFFFF;
+
     }
     
     /*Centrer le contenu et donner un petit effet*/
     .emphase2{
-        background-color: #4C4A4A;
+        background-color: #4C4A4A;;
         padding: 5px 5px 5px 5px;
         border-radius: 10px;
         height: auto;
@@ -111,9 +101,30 @@
        border-radius: 10px;
     }
 
-    /*Faire ressortir le titre*/
-    .emphase1>h4{
-        background-color: rgba(244, 244, 244, 0.87);
+    /*Differencier les forfaits*/
+    .base>h4{
+        background-color: #E2DCDE;
+    }
+	/*Differencier les forfaits*/
+	.regulier>h4{
+        background-color: #C9C5C6;
+    }
+	/*Differencier les forfaits*/
+	.base>h4:hover{
+        background-color:#ffffff;
+    }
+	
+	/*Changer la couleur on mouseover*/
+	.regulier >h4:hover{
+        background-color:#ffffff;
+    }
+	/*Changer la couleur on mouseover*/
+	.premium >h4:hover{
+        background-color:#ffffff;
+    }
+	/*Changer la couleur on mouseover*/
+	.premium>h4{
+        background-color:#9E9A9B;
     }
 
     /*Faire ressortir le titre*/
@@ -121,14 +132,16 @@
         background-color: #9E9E9E;
         color: #253746;
         padding: 5px 0px 0px 0px;
-        height: 100px;
+        height: auto;
         text-align: center;
     }
-
+	
+	/*La banniere pour interpeller l'utilisateur*/
     .callaction h1{
         color: #253746;
     }
 
+	/*La banniere pour interpeller l'utilisateur change de couleur on mouseover*/
     .callaction h1:hover{
         color: #ffffff;
     }
@@ -170,3 +183,25 @@
         box-shadow: 3px 3px 3px #000000;
         color: #000000;
     }
+	
+	/*Mettre le numero de telephone bien en evidence*/
+	.telephone span{
+		font-size:30px;
+		line-height:3px;
+	}
+	
+	/*Ajouter une ombre au bouton*/
+	.shadow a{
+		text-decoration:none;
+	}
+	
+	/*Espacer les td*/
+	td{
+		padding:5px;
+	}
+	
+	/*Espacer le input pour les forfaits*/
+	input{
+		margin:5px;
+	}
+	

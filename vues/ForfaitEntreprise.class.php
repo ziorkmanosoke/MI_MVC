@@ -4,7 +4,7 @@
  * Description of Forfait
  * 
  */
-class Forfait {
+class ForfaitEntrePrise {
     //put your code here
     
     public function afficheContenuForfait(){
@@ -91,66 +91,31 @@ class Forfait {
                                             </article>
                                           
                                         </article>
-                                     
-										<article class="box"><!--Debut du creer un compte-->
-												 <!--Application des tooltip sur le bouton creer un compte--> 
-												<button type="submit" class="btn required-icon shadow"  title="Creer un compte pour pouvoir passer à la caisse"><a href="index.php?page=creerCompte">Créer un compte</a></button>
-										</article><!--Fin du creer un compte-->
-									 
+										
+										<article class="box"><!--Debut des choix pour les forfaits pour les emtreprises-->
+											<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+												<input type="hidden" name="cmd" value="_s-xclick">
+												<table>
+												<tr  class="forfait"><td><input type="hidden" name="on0" value="Les Forfaits">Les Forfaits d'Entreprises</td></tr><tr><td><select name="os0">
+													<option value="La Base">La Base $100.00 CAD</option>
+													<option value="Le Regulier">Le Regulier $200.00 CAD</option>
+													<option value="Le Premium">Le Premium $400.00 CAD</option>
+												</td></tr>
+												</table>
+												<input type="hidden" name="currency_code" value="CAD">
+												<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+												">
+												<input type="image" src="https://www.paypalobjects.com/fr_CA/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !">
+												<img alt="" border="0" src="https://www.paypalobjects.com/fr_CA/i/scr/pixel.gif" width="1" height="1">
+											</form>
+										</article><!--Fin des choix pour les forfaits pour les entreprises-->
+										 
+										 
+										 
                                 </article>
                                 
                             </article>
                         </article>
-                            
-                        <article class=" col-xs-12 col-sm-6">
-                            <article class="box">
-                                <article class="box-blanc alignleft">
-                                    <div class="icon"><!--Debut icon pour particulier-->
-                                        <h4><i class="fa fa-home fa-3x"></i><strong>Forfait Particuliers</strong></h4>
-                                    
-                                        <article class="emphase2 aligncenter"><!--Section pour le 1ere forfait particulier-->
-                                            <article class="base"><!--Section pour le prix et conditions particulier-->
-                                                <h4><strong>LA BASE 75$</strong></h4>
-                                                <h5>Annonce de 6 photos</h5>
-                                                <p>Publication de l'annonce visible pour 20 jours</p>
-                                                <h5>Soutien technique en ligne disponible</h5>
-                                            </article>
-                                            
-                                        </article>
-                                        
-                                         <article class="emphase2 aligncenter"><!--Section pour le 2eme forfait particulier-->
-                                            <article class="regulier"><!--Section pour le prix et conditions particulier-->
-                                                <h4><strong>LE REGULIER 150$</strong></h4>
-                                                <h5>Annonce de 8 photos</h5>
-                                                <p>Publication de l'annonce visible pour 40 jours</p>
-												<p>Soutien technique en ligne disponible</p>
-                                                <p>Suivi mensuelle avec notre coach en immobilier</p>
-                                                
-                                            </article>
-                                            
-                                        </article>
-                                        
-                                        <article class="emphase2 aligncenter"><!--Section pour le 3eme forfait particulier-->
-                                            <article class="premium"><!--Section pour le prix et conditions particulier-->
-                                                <h4><strong>LE PREMIUM 300$</strong></h4>
-                                                <h5>Annonce de 10 photos</h5>
-                                                <p>Publication de l'annonce jusqu'à la fin de la transaction</p>
-												<p>Soutien technique en ligne disponible</p>
-                                                <p>Suivi mensuelle avec notre coach en immobilier</p>
-                                                <p>Vos annonces apparaitront sur la page la page d'accueil</p>
-                                            </article>
-                                           
-                                        </article>
-                                        
-                                        <article class="box"><!--Debut du creer un compte -->
-												 <!--Application des tooltip sur le bouton creer un compte--> 
-												<button type="submit" class="btn required-icon shadow"  title="Creer un compte pour pouvoir passer à la caisse"><a href="index.php?page=creerCompte">Créer un compte</a></button>
-										</article><!--Fin du creer un compte-->
-										
-								 </article>
-                                </article>
-                                
-                            </article>
                         </article>
                        
 

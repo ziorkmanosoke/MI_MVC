@@ -20,11 +20,31 @@ class ConfirmationFormulaireInscription {
         //$this->test($courriel);  
         //$this->test($ville); 
         //$this->test($province);
-        $validationNom = $this->validationNomPrenom($nom, $prenom);
+        $validationNom = $this->verificationAlpha($nom);
+        $validationPrenom = $this->verificationAlpha($prenom);
+        $validationCourriel = $this->verificationEmail($courriel);
+        $validationDateDeNaissance = $this-> verificationDoB($dob);
+        $validationVille = $this->verificationAlphaEx($ville);
+        $validationProvince = $this->verificationAlphaEx($province);
         $motDePasse = $this->validationMotDePasse($mp, $cmp);
         
+        if($validationNom && $validationPrenom && $validationCourriel && $validationVille && $validationProvince && $motDePasse && $validationDateDeNaissance)
+        {
+            echo "SUCCESS";
+            $mp = hash('sha256', $mp)
+            $req = "INSERT INTO mi_utilisateurs (nom, prenom, courriel, mot_de_passe, sexe, DOB, ID_adresse, ID_forfait, ID_agence, ID_photo, ID_role)
+            VALUES ($nom, $prenom, $courriel , $mp , $sexe, $dob, 1, 1, null, null, 1)";
+            requeteServeur::requeteMysql($req)
+        }
+        else
+        {
+            echo "ECHEC" ;
+        }
+        
 	}
-	
+
+    
+    
     public function test($i)
     {
         var_dump($i);
@@ -38,7 +58,7 @@ class ConfirmationFormulaireInscription {
    
     /*source: http://www.phpsources.org/scripts609-PHP.htm*/
     public function verificationAlpha($str){
-        preg_match("/([^A-Za-z])/",$str,$result);
+        preg_match("/([^A-Za-z ])/",$str,$result);
         //On cherche toutt les caractères autre que [A-z] 
         if(!empty($result)){//si on trouve des caractère autre que A-z
             return false;
@@ -65,9 +85,20 @@ class ConfirmationFormulaireInscription {
         }
         return true;
     }
+    
     //[a-zA-Z0-9_-.+]+@[a-zA-Z0-9-]+.[a-zA-Z]+/
     public function verificationEmail($str){
-        preg_match("/[a-zA-Z0-9_-.+]+@[a-zA-Z0-9-]+.[a-zA-Z]+/",$str,$result);
+        $result = preg_match("/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z]+$/", $str, $result);
+        //On cherche tout les caractères autre que [0-9]
+        if(empty($result)){//si on trouve des caractère autre que 0-9
+            return false;
+        }
+        return true;
+    }
+    
+    
+    public function verificationAlphaEx($str){
+        preg_match("/[^A-Za-zéÉîÎ-]/",$str,$result);
         //On cherche tout les caractères autre que [0-9]
         if(!empty($result)){//si on trouve des caractère autre que 0-9
             return false;
@@ -75,7 +106,15 @@ class ConfirmationFormulaireInscription {
         return true;
     }
     
-    
+    public function verificationDoB($str)
+    {
+        preg_match("/^(19|2[0-9])[0-9]{2}[\/ -](0[1-9]|1[0-2])[\/ -](0[1-9]|[1-2][0-9]|3[0-1])$/",$str,$result);
+        //On cherche tout les caractères autre que [0-9]
+        if(empty($result)){//si on trouve des caractère autre que 0-9
+            return false;
+        }
+        return true;
+    }
     
     
     public function validationMotDePasse($mp, $cmp)

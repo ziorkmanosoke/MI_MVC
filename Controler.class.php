@@ -45,9 +45,13 @@ class Controler
                     case 'creerAgence':
                             $this->creationAgence();
                             break;
-                    
-                                
-                default:
+                    case 'ForfaitParticulier':
+                            $this->afficherForfaitParticulier();
+                            break;
+                    case 'ForfaitEntreprise':
+                            $this->afficherForfaitEntreprise();
+                            break;           
+                    default:
                             $this->afficherAccueil();
                             break;
             }
@@ -132,7 +136,27 @@ class Controler
 
         }
     
-        
+        private function afficherForfaitParticulier() {
+          
+            $oNav = new Nav();
+            $oNav->afficheNavigateur();
+            
+            $page = new ForfaitParticulier();
+            $page->afficheContenuForfait();
+            
+
+        }
+    
+        private function afficherForfaitEntreprise() {
+
+                $oNav = new Nav();
+                $oNav->afficheNavigateur();
+
+                $page = new ForfaitEntreprise();
+                $page->afficheContenuForfait();
+
+
+        }
         
         public function validerFormulaire()
         {

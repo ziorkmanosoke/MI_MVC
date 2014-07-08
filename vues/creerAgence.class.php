@@ -12,7 +12,7 @@ class creerAgence {
 
     <article class="container well">
         <h1 class="brand">Inscription d'agence</h1>
-        <form class="form-horizontal" role="form">     
+        <form class="form-horizontal" method="post" action="index.php?page=ForfaitEntreprise">     
             <!-- article qui contiendra le nom de l'agence--> 
             <article class="form-group ">
                 <label for="inputNom" class="col-sm-2 control-label">Nom de l'agence: </label>
@@ -92,6 +92,7 @@ class creerAgence {
 
             <article class="form-group">
                 <section class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" class="btn btn-success" value="Continuer"/>
                     <button type="button" onClick="location.href='../fr/forfaitsEntreprises.html'" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> Continuer</button>
                 </section>
             </article>  
