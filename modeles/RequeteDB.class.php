@@ -5,7 +5,7 @@ Projet: Travaille Integration 2
 */
 
 /*classe utilitaire pour aller cherchez des informations dans une base de donnee*/
-class requeteServeur
+class RequeteDB
 { 
     /*Requete vers une base de donne Mysql*/
     static function requeteMysql($req)

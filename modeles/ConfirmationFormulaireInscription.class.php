@@ -28,22 +28,23 @@ class ConfirmationFormulaireInscription {
         $validationProvince = $this->verificationAlphaEx($province);
         $motDePasse = $this->validationMotDePasse($mp, $cmp);
         
-        if($validationNom && $validationPrenom && $validationCourriel && $validationVille && $validationProvince && $motDePasse && $validationDateDeNaissance)
-        {
-            echo "SUCCESS";
-            $mp = hash('sha256', $mp)
-            $req = "INSERT INTO mi_utilisateurs (nom, prenom, courriel, mot_de_passe, sexe, DOB, ID_adresse, ID_forfait, ID_agence, ID_photo, ID_role)
-            VALUES ($nom, $prenom, $courriel , $mp , $sexe, $dob, 1, 1, null, null, 1)";
-            requeteServeur::requeteMysql($req)
-        }
-        else
-        {
-            echo "ECHEC" ;
-        }
+        return $this->valide($validationNom && $validationPrenom && $validationCourriel && $validationVille && $validationProvince && $motDePasse && $validationDateDeNaissance);
+ 
         
 	}
 
-    
+
+    public function valide($validationNom ="", $validationPrenom ="", $validationCourriel ="", $validationVille ="", $validationProvince ="", $motDePasse ="", $validationDateDeNaissance ="")
+    {
+        if ($validationNom && $validationPrenom && $validationCourriel && $validationVille && $validationProvince && $motDePasse && $validationDateDeNaissance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     
     public function test($i)
     {

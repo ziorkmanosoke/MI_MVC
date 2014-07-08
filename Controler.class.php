@@ -162,10 +162,32 @@ class Controler
         {
             $valide = new ConfirmationFormulaireInscription($_POST["nom"], $_POST["prenom"], $_POST["mp"], $_POST["cmp"], $_POST["sexe"], $_POST["dob"], $_POST["courriel"], $_POST["ville"], $_POST["province"]);
 
+            
+            if($valide)
+            {
+                echo "SUCCESS";
+                $mp = hash('sha256', $_POST["mp"]);
+                $req = "INSERT INTO mi_utilisateurs (nom, prenom, courriel, mot_de_passe, sexe, DOB, ID_adresse, ID_forfait, ID_agence, ID_photo, ID_role) VALUES ($_POST['nom'], $_POST['prenom'], $_POST['courriel'] , $mp , $_POST['sexe'], $_POST['dob'], 1, 1, null, null, 1)";
+                RequeteDB::requeteMysql($req);
+                
+            }
+            else
+            {
+                echo "ECHEC";
+            }
          }
         
-        
-        
+               {
+            echo "SUCCESS";
+            $mp = hash('sha256', $mp);
+            $req = "INSERT INTO mi_utilisateurs (nom, prenom, courriel, mot_de_passe, sexe, DOB, ID_adresse, ID_forfait, ID_agence, ID_photo, ID_role)
+                    VALUES ($nom, $prenom, $courriel , $mp , $sexe, $dob, 1, 1, null, null, 1)";
+            RequeteDB::requeteMysql($req);
+        }
+        else
+        {
+            echo "ECHEC" ;
+        }
         
     /****************************** Back office : Agence immobilière ********/
     public function gererAgenceImmobiliere(){
