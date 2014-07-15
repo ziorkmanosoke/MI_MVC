@@ -3,7 +3,7 @@
    * Faire l'assignation des variables ici avec les isset() ou !empty()
    */
    
-   
+   define("BASE", dirname(__FILE__));
 	if(empty($_GET['requete']))
 	{
 		$_GET['requete'] = '';

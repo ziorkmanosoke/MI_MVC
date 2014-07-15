@@ -166,16 +166,22 @@ class Controler
         {
             $formulaire = new ConfirmationFormulaireInscription($_POST["nom"], $_POST["prenom"], $_POST["mp"], $_POST["cmp"], $_POST["sexe"], $_POST["dob"], $_POST["courriel"], $_POST["ville"], $_POST["province"]);
             $validation = $formulaire->validation();
+            
             echo "<pre>".print_r($formulaire,true)."</pre>";
             var_dump($validation);
             if($validation)
             {
                 echo "SUCCESS";
-
-                //$req = "INSERT INTO mi_utilisateurs (nom, prenom, courriel, mot_de_passe, sexe, DOB, ID_adresse, ID_forfait, ID_agence, ID_photo, ID_role)" .  "VALUES  ( '".$formulaire->getNom()."' , '".$formulaire->getPrenom()."' , '".$formulaire->getCourriel()."' , '".$formulaire->getMotDePasse()."' , '".$formulaire->getSexe()."' , '".$formulaire->getDateNaissance()."' , null, null, null, null, null)";
-                $req = "SELECT ID_province FROM mi_province WHERE province = ".$formulaire->getProvince()."";
-                $idp = RequeteDB::requeteMysql($req);
-               // echo "<pre>".print_r($idp,true)."</pre>";
+                /*Un objet va gerer le formulaire et envoyer dans db les informations qui son correct*/
+                $ManipulationClient = new ManipulationInformationClientDB($formulaire);
+                echo "<pre>".print_r($ManipulationClient,true)."</pre>";
+                //echo $Manipulation->getFormulaire()->getNom();
+                //$req = "INSERT INTO mi_utilisateurs (nom, prenom, courriel, mot_de_passe, sexe, DOB, ID_adresse, ID_forfait, ID_agence, ID_photo, ID_role)" .  "VALUES  ( '".$formulaire->getNom()."' , '".$formulaire->getPrenom()."' , '".$formulaire->getCourriel()."' , '".$formulaire->getMotDePasse()."' , '".$formulaire->getSexe()."' , '".$formulaire->getDateNaissance()."' , 1, 1, null, null, 1)";
+                //$req = "SELECT * FROM mi_province WHERE province = '".$formulaire->getProvince()."'";
+                //$req = "SELECT * FROM mi_ville WHERE ville = '".$formulaire->getVille()."'";
+                echo "<pre>".print_r($ManipulationClient->getProvinceID(),true)."</pre>";
+                echo "<pre>".print_r($ManipulationClient->getVilleID(),true)."</pre>";
+                //echo $ManipulationClient->getProvinceID();
             }
             else
             {

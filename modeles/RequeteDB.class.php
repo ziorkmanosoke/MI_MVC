@@ -23,16 +23,11 @@ class RequeteDB
         //$mysqli->query("CREATE TABLE myCity LIKE City");
         
         $query = $req;
-        $mysqli->query($query);
-        echo "<pre>".print_r($mysqli,true)."</pre>";
-        printf ("Le nouvel enregistrement a l'id %d.\n", $mysqli->insert_id);
-        return $mysqli;
-        /* drop table */
-        //$mysqli->query("DROP TABLE myCity");
-
-        /* Fermeture de la connexion */
-        $mysqli->close();
-        
+        $resultat = $mysqli->query($query);
+        echo "<pre>".print_r($resultat,true)."</pre>";
+        //printf ("Le nouvel enregistrement a l'id %d.\n", $mysqli->insert_id);
+        return $resultat;
+          
     } 
 }
 

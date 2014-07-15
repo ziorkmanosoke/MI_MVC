@@ -1,4 +1,14 @@
-<?php
+<?php session_start(); 
+    
+    if(!isset($_SESSION['ID_utilisateur']))
+    {
+        $_SESSION['ID_utilisateur'] = 1;
+    }
+    else
+    {
+        $_SESSION['ID_utilisateur']++;
+    }
+    var_dump($_SESSION['ID_utilisateur']) ;
 
 /**
  * Fichier de lancement du MVC, Il appel le var.init et le gabarit HTML 
