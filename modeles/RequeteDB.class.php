@@ -10,7 +10,7 @@ class RequeteDB
     /*Requete vers une base de donne Mysql*/
     static function requeteMysql($req)
     {  
-        $mysqli = new mysqli("localhost", "root", "", "test");
+        $mysqli = connexionObjet("e1395342","dbconnect");
 
         mysqli_set_charset($mysqli,"utf8");
         
@@ -33,27 +33,6 @@ class RequeteDB
         /* Fermeture de la connexion */
         $mysqli->close();
         
-        
-        /*
-        $id= connexionObjet("test","dbconnect");
-        $id->query("SET NAMES UTF8");
-        $resultat = $id->query($req);
-        echo "<pre>".print_r($resultat,true)."</pre>";
-        if ($resultat == null)
-        {
-            echo "NULL!!!<br/>";
-        }
-        if(!$resultat)
-        {
-            echo "PROBLEME!!!!";
-            return "erreur";
-        }
-        else
-        { 
-            echo "OK!!!";
-            return $resultat;
-        }
-        */
     } 
 }
 

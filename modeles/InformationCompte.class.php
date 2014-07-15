@@ -1,6 +1,6 @@
 <?php
-/**
-
+/*
+ds
  */
 class InformationCompte {
 	
