@@ -26,17 +26,17 @@ class ConfirmationFormulaireInscription {
         $this->setVille($ville);
         $this->setProvince($province);
         
-        $this->test($this->getNom());
-        $this->test($this->getPrenom());
-        $this->test($this->getMotDePasse());
-        $this->test($this->getConfMotDePasse());
-        $this->test($this->getSexe());
-        $this->test($this->getDateNaissance());
-        $this->test($this->getCourriel());
-        $this->test($this->getVille());
-        $this->test($this->getProvince());  
+        //$this->test($this->getNom());
+        //$this->test($this->getPrenom());
+        //$this->test($this->getMotDePasse());
+        //$this->test($this->getConfMotDePasse());
+        //$this->test($this->getSexe());
+        //$this->test($this->getDateNaissance());
+        //$this->test($this->getCourriel());
+        //$this->test($this->getVille());
+        //$this->test($this->getProvince());  
         
-        $this->validation();
+        //$this->validation();
 	}
     
     /*get et set de nom*/
@@ -64,7 +64,7 @@ class ConfirmationFormulaireInscription {
     /*get et set de mp*/
     public function getMotDePasse()
     {
-        return $this->mp;
+        return hash('sha256',$this->mp);
     }
     
     private function setMotDePasse($str)
@@ -75,7 +75,7 @@ class ConfirmationFormulaireInscription {
     /*get et set de cmp*/
     public function getConfMotDePasse()
     {
-        return $this->cmp;
+        return hash('sha256',$this->cmp);
     }
     
     private function setConfMotDePasse($str)
@@ -92,6 +92,18 @@ class ConfirmationFormulaireInscription {
     private function setSexe($str)
     {
         $this->sexe = $str;
+        if($this->sexe == "homme")
+        {
+            $this->sexe = 'M';
+        }
+        else if ($this->sexe == "femme")
+        {
+            $this->sexe = 'F';
+        }
+        else
+        {
+            $this->sexe = 'A';
+        }
     }
     
     /*get et set de dob*/
@@ -141,50 +153,52 @@ class ConfirmationFormulaireInscription {
     /*function qui va valider si les informations recu son correcte dependant des normes pre établis et retourne true ou false si tous est correcte*/
     public function validation()
     {
-        /*        
-$this->test($this->getNom());
-        $this->test($this->getPrenom());
-        $this->test($this->getMotDePasse());
-        $this->test($this->getConfMotDePasse());
-        $this->test($this->getSexe());
-        $this->test($this->getDateNaissance());
-        $this->test($this->getCourriel());
-        $this->test($this->getVille());
-        $this->test($this->getProvince());  
-        */
         $validationNom = $this->verificationAlpha($this->getNom());
-        $validationPrenom = $this->verificationAlpha($this->getPrenom());
-        $validationCourriel = $this->verificationEmail($this->getCourriel());
-        $validationDateDeNaissance = $this-> verificationDoB($this->getDateNaissance());
-        $validationVille = $this->verificationAlphaEx($this->getVille());
-        $validationProvince = $this->verificationAlphaEx($this->getProvince());
-        $motDePasse = $this->validationMotDePasse($this->getMotDePasse(), $this->getConfMotDePasse());
-        
-        //return $this->valide($validationNom && $validationPrenom && $validationCourriel && $validationVille && $validationProvince && $motDePasse && $validationDateDeNaissance);
-    }
-    
-    
-    public function valide($validationNom ="", $validationPrenom ="", $validationCourriel ="", $validationVille ="", $validationProvince ="", $motDePasse ="", $validationDateDeNaissance ="")
-    {
-        $this->test($validationNom);
-        $this->test($validationPrenom);
-        $this->test($validationCourriel);
-        $this->test($validationVille);
-        $this->test($validationProvince);
-        $this->test($validationProvince);
-        $this->test($validationDateDeNaissance);
-        $this->test($motDePasse);
-        
-        if ($validationNom && $validationPrenom && $validationCourriel && $validationVille && $validationProvince && $motDePasse && $validationDateDeNaissance)
+        if ($validationNom != 1)
         {
-            return true;
-        }
-        else
-        {
+            echo "nom fail";
             return false;
         }
+        $validationPrenom = $this->verificationAlpha($this->getPrenom());
+        if ($validationPrenom != 1)
+        {
+            echo "prenom fail";
+            return false;
+        }
+        $validationCourriel = $this->verificationEmail($this->getCourriel());
+        if ($validationCourriel != 1)
+        {
+            echo "courriel fail";
+            return false;
+        }
+        $validationDateDeNaissance = $this-> verificationDoB($this->getDateNaissance());
+        if ($validationDateDeNaissance != 1)
+        {
+            echo "dob fail";
+            return false;
+        }
+        $validationVille = $this->verificationAlphaEx($this->getVille());
+        if ($validationVille != 1)
+        {
+            echo "ville fail";
+            return false;
+        }
+        $validationProvince = $this->verificationAlphaEx($this->getProvince());
+        if ($validationProvince != 1)
+        {
+            echo "province fail";
+            return false;
+        }
+        $motDePasse = $this->validationMotDePasse($this->getMotDePasse(), $this->getConfMotDePasse());
+        if ($motDePasse != 1)
+        {
+            echo "mp fail";
+            return false;
+        }
+        /*si tous les test on passer avec success, retourne vrai*/
+        return true;
     }
-    
+   
     public function test($i)
     {
         //echo "<pre>".print_r($i,true)."</pre>";

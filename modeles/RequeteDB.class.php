@@ -10,21 +10,53 @@ class RequeteDB
     /*Requete vers une base de donne Mysql*/
     static function requeteMysql($req)
     {  
-        $id= connexionObjet("e1395342","dbconnect");
+        $mysqli = new mysqli("localhost", "root", "", "test");
+
+        /* Vérification de la connexion */
+        if (mysqli_connect_errno()) {
+            printf("Échec de la connexion : %s\n", mysqli_connect_error());
+            exit();
+        }
+
+        //$mysqli->query("CREATE TABLE myCity LIKE City");
+
+        $query = $req;
+        $mysqli->query($query);
+        //echo "<pre>".print_r($mysqli,true)."</pre>";
+        printf ("Le nouvel enregistrement a l'id %d.\n", $mysqli->insert_id);
+        
+        /* drop table */
+        //$mysqli->query("DROP TABLE myCity");
+
+        /* Fermeture de la connexion */
+        $mysqli->close();
+        
+        
+        /*
+        $id= connexionObjet("test","dbconnect");
         $id->query("SET NAMES UTF8");
         $resultat = $id->query($req);
-        
+        echo "<pre>".print_r($resultat,true)."</pre>";
+        if ($resultat == null)
+        {
+            echo "NULL!!!<br/>";
+        }
         if(!$resultat)
         {
-            //echo "PROBLEME!!!!";
+            echo "PROBLEME!!!!";
             return "erreur";
         }
         else
         { 
-            //echo "OK!!!";
+            echo "OK!!!";
             return $resultat;
-        }	    
+        }
+        */
     } 
 }
 
 ?>	
+
+<?php
+
+?>

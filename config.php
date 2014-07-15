@@ -20,6 +20,10 @@
 			{
 				require_once('./'.$dossier.$class.'.class.php');
 			}
+            if(file_exists('./'.$dossier.$class.'.inc.php'))
+			{
+				require_once('./'.$dossier.$class.'.inc.php');
+			}
 		}
 		
 	  

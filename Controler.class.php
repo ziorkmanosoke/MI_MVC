@@ -39,8 +39,8 @@ class Controler
                     case 'infosCompte':
                             $this->afficherInformationCompte();
                             break;
-                    case 'validationForfait':
-                            $this->validerFormulaire();
+                    case 'validationFormulaireClient':
+                            $this->validerFormulaireClient();
                             break;
                     case 'creerAgence':
                             $this->creationAgence();
@@ -157,26 +157,30 @@ class Controler
 
 
         }
-        
-        public function validerFormulaire()
+    
+    
+        public function validerFormulaireClient()
         {
-            $valide = new ConfirmationFormulaireInscription($_POST["nom"], $_POST["prenom"], $_POST["mp"], $_POST["cmp"], $_POST["sexe"], $_POST["dob"], $_POST["courriel"], $_POST["ville"], $_POST["province"]);
-
-            //var_dump($valide);
-            if($valide)
+            $formulaire = new ConfirmationFormulaireInscription($_POST["nom"], $_POST["prenom"], $_POST["mp"], $_POST["cmp"], $_POST["sexe"], $_POST["dob"], $_POST["courriel"], $_POST["ville"], $_POST["province"]);
+            $validation = $formulaire->validation();
+            echo "<pre>".print_r($formulaire,true)."</pre>";
+            var_dump($validation);
+            if($validation)
             {
                 echo "SUCCESS";
-                $mp = hash('sha256', $_POST["mp"]);
-                echo $mp;
-                $req = "INSERT INTO mi_utilisateurs (nom, prenom, courriel, mot_de_passe, sexe, DOB, ID_adresse, ID_forfait, ID_agence, ID_photo, ID_role) VALUES (".$_POST['nom'].",". $_POST['prenom'].",". $_POST['courriel'].",". $mp .",". $_POST['sexe'].",". $_POST['dob'].", 1, 1, null, null, 1)";
-                //RequeteDB::requeteMysql($req);
                 
+                //$req = "INSERT INTO mi_utilisateurs (nom, prenom, courriel, mot_de_passe, sexe, DOB, ID_adresse, ID_forfait, ID_agence, ID_photo, ID_role) VALUES (".$formulaire->getNom().",".$formulaire->getPrenom().",".$formulaire->getCourriel().",".hash('sha256',$formulaire->getMotDePasse()).",".$formulaire->getSexe().",".$formulaire->getDateNaissance().", null, null, null, null, null)";
+                $req = "INSERT INTO mi_utilisateurs (nom, prenom, courriel, mot_de_passe, sexe, DOB, ID_adresse, ID_forfait, ID_agence, ID_photo, ID_role)" .  "VALUES  ( '".$formulaire->getNom()."' , '".$formulaire->getPrenom()."' , '".$formulaire->getCourriel()."' , '".$formulaire->getMotDePasse()."' , '".$formulaire->getSexe()."' , '".$formulaire->getDateNaissance()."' , null, null, null, null, null)";
+                RequeteDB::requeteMysql($req);
+
             }
             else
             {
                 echo "ECHEC";
             }
          }
+        
+        
         
     /****************************** Back office : Agence immobilière ********/
     public function gererAgenceImmobiliere(){

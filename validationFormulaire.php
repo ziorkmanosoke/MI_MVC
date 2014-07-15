@@ -10,6 +10,8 @@
     var_dump($ville = $_POST["ville"]); 
     var_dump($province = $_POST["province"]);
     
+
+    
     //$validation = new validateurFormulaire();
 
     //$validation = new validateurFormulaire();
