@@ -8,17 +8,18 @@ class InformationAgence {
 
     public function __construct(){
         //$this->setVariable($resultat, $cVoulu);
-        $this->infos = requeteServeur::requeteMysql("e1395342","dbconnect");
+        //$this->infos = requeteServeur::requeteMysql("e1395342","dbconnect");
         //echo "<pre>".print_r($this->infos->getInfos(),true)."</pre>";
     }
-
+    /*
     public function getAllInfo()
     {
         $requete ="SELECT * FROM question";
         return $this->infos->getAllInfos($requete);
     }
-
+    */
     /*va chercher les infos d'une question dependant son id*/
+    /*
     public function getQuestion($id)
     {
         var_dump($id);
@@ -40,7 +41,9 @@ class InformationAgence {
             //echo "<pre>".print_r($val,true)."</pre>";
         }
     }
+    */
     /*permet aller chercher tous les info requis pour une section (css, internet et web , xhtml)*/
+    /*
     public function getCategorieInfo($categorie)
     {
         $i = 1;
@@ -77,6 +80,7 @@ class InformationAgence {
         }
         return $informations;
     }
+    */
 }
 
 

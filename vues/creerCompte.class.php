@@ -18,7 +18,7 @@ class creerCompte {
         <!-- contient le formulaire d'inscription -->
             <h1 class="brand">Formulaire inscription.</h1>
             <article>
-                <form class="form-horizontal" method="post" action="index.php?page=validationFormulaireClient">     
+                <form class="form-horizontal" method="post" action="index.php?page=choixForfait">     
                     <!-- article qui contiendra le nom--> 
                     <article class="form-group ">
                         <label for="inputNom"  class="col-sm-2 control-label">Nom: </label>

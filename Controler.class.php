@@ -42,6 +42,9 @@ class Controler
                     case 'validationFormulaireClient':
                             $this->validerFormulaireClient();
                             break;
+                    case 'validationFormulaireAgence':
+                            $this->validerFormulaireAgence();
+                            break;
                     case 'creerAgence':
                             $this->creationAgence();
                             break;
@@ -168,16 +171,26 @@ class Controler
             if($validation)
             {
                 echo "SUCCESS";
-                
-                //$req = "INSERT INTO mi_utilisateurs (nom, prenom, courriel, mot_de_passe, sexe, DOB, ID_adresse, ID_forfait, ID_agence, ID_photo, ID_role) VALUES (".$formulaire->getNom().",".$formulaire->getPrenom().",".$formulaire->getCourriel().",".hash('sha256',$formulaire->getMotDePasse()).",".$formulaire->getSexe().",".$formulaire->getDateNaissance().", null, null, null, null, null)";
-                $req = "INSERT INTO mi_utilisateurs (nom, prenom, courriel, mot_de_passe, sexe, DOB, ID_adresse, ID_forfait, ID_agence, ID_photo, ID_role)" .  "VALUES  ( '".$formulaire->getNom()."' , '".$formulaire->getPrenom()."' , '".$formulaire->getCourriel()."' , '".$formulaire->getMotDePasse()."' , '".$formulaire->getSexe()."' , '".$formulaire->getDateNaissance()."' , null, null, null, null, null)";
-                RequeteDB::requeteMysql($req);
 
+                //$req = "INSERT INTO mi_utilisateurs (nom, prenom, courriel, mot_de_passe, sexe, DOB, ID_adresse, ID_forfait, ID_agence, ID_photo, ID_role)" .  "VALUES  ( '".$formulaire->getNom()."' , '".$formulaire->getPrenom()."' , '".$formulaire->getCourriel()."' , '".$formulaire->getMotDePasse()."' , '".$formulaire->getSexe()."' , '".$formulaire->getDateNaissance()."' , null, null, null, null, null)";
+                $req = "SELECT ID_province FROM mi_province WHERE province = ".$formulaire->getProvince()."";
+                $idp = RequeteDB::requeteMysql($req);
+               // echo "<pre>".print_r($idp,true)."</pre>";
             }
             else
             {
                 echo "ECHEC";
             }
+         }
+    
+    
+        public function validerFormulaireAgence()
+        {
+            $formulaire = new ConfirmationFormulaireAgence($_POST["nom"], $_POST["courriel"], $_POST["siteweb"], $_POST["telephone"], $_POST["nbrue"], $_POST["nomrue"], $_POST["ville"], $_POST["province"]);
+            //$validation = $formulaire->validation();
+            echo "<pre>".print_r($formulaire,true)."</pre>";
+            //var_dump($validation);
+            
          }
         
         

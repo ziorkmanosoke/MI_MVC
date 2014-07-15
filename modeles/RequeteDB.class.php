@@ -12,6 +12,8 @@ class RequeteDB
     {  
         $mysqli = new mysqli("localhost", "root", "", "test");
 
+        mysqli_set_charset($mysqli,"utf8");
+        
         /* Vérification de la connexion */
         if (mysqli_connect_errno()) {
             printf("Échec de la connexion : %s\n", mysqli_connect_error());
@@ -19,12 +21,12 @@ class RequeteDB
         }
 
         //$mysqli->query("CREATE TABLE myCity LIKE City");
-
+        
         $query = $req;
         $mysqli->query($query);
-        //echo "<pre>".print_r($mysqli,true)."</pre>";
+        echo "<pre>".print_r($mysqli,true)."</pre>";
         printf ("Le nouvel enregistrement a l'id %d.\n", $mysqli->insert_id);
-        
+        return $mysqli;
         /* drop table */
         //$mysqli->query("DROP TABLE myCity");
 
