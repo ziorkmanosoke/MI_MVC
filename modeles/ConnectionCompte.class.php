@@ -21,11 +21,40 @@ class ConnectionCompte {
 	 */
 	public function getIDCompte() 
 	{	
+		if (isset($this->infoCompte['ID_utilisateurs']))
+		{
+			return $this->infoCompte['ID_utilisateurs'];
+		}
+		else
+		{
+			return "";
+		}
 		
 	}
 
-	private function setIDCompte() 
+	public function getPrenomCompte() 
 	{	
+		if (isset($this->infoCompte['prenom']))
+		{
+			return $this->infoCompte['prenom'];
+		}
+		else
+		{
+			return "";
+		}
+		
+	}
+
+	public function getNomCompte() 
+	{	
+		if (isset($this->infoCompte['nom']))
+		{
+			return $this->infoCompte['nom'];
+		}
+		else
+		{
+			return "";
+		}
 		
 	}
 
@@ -55,24 +84,40 @@ class ConnectionCompte {
 
 	private function requeteBD() 
 	{	
-		$req = "SELECT * FROM `mi_utilisateurs` WHERE courriel = '".$this->getCourriel()."' AND mot_de_passe = '".$this->getMotPasse()."';";
-		var_dump($req);
-		$idp = $this->BD->getBD()->query($req);
-		//var_dump($idp);
-		echo "<pre>".print_r($idp,true)."</pre>";
-		return $idp;
+		if($this->motPasse == "" || $this->courriel =="")
+		{
+			return "";
+		}
+		else
+		{
+			$req = "SELECT * FROM `mi_utilisateurs` WHERE courriel = '".$this->getCourriel()."' AND mot_de_passe = '".$this->getMotPasse()."';";
+			//var_dump($req);
+			$idp = $this->BD->getBD()->query($req);
+			//var_dump($idp);
+			//echo "<pre>".print_r($idp,true)."</pre>";
+			return $idp;
+		}
 	}
 
 	private function setInfoCompte()
 	{
 		$mysql = $this->requeteBD();
 		//echo "<pre>".print_r($mysql,true)."</pre>";
-		$this->infoCompte = mysqli_fetch_assoc($mysql);
-		echo "<pre>".print_r($this->infoCompte,true)."</pre>";
+		if ($mysql == "")
+		{
+			$this->infoCompte = "";
+		}
+		else
+		{
+			$this->infoCompte = mysqli_fetch_assoc($mysql);
+			//echo "<pre>".print_r($this->infoCompte,true)."</pre>";
+		}
+		
+	}
+
+	public function getInfoCompte()
+	{
+		return $this->infoCompte;
 	}
 }
-
-
-
-
 ?>

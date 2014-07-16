@@ -205,6 +205,20 @@ class Controler
         public function connexionCompte()
         {
             $log = new ConnectionCompte($_POST["courrielUtilisateur"] , $_POST["MPUtilisateur"]);
+            //echo "login Info<br/>";
+            if($log->getInfoCompte() == NULL)
+            {
+                echo "mauvais utilisateur";
+            }
+            else
+            {
+                echo "<pre>".print_r($log->getInfoCompte(),true)."</pre>";
+                //echo "id compte: ".$log->getIDCompte()."<br/>";
+                $_SESSION["utilisateur"] = $log->getIDCompte();
+                echo "id compte: ".$_SESSION["utilisateur"]."<br/>";
+                echo "prenom compte: ".$log->getPrenomCompte()."<br/>";
+                echo "nom compte: ".$log->getNomCompte()."<br/>";
+            }
         }
         
         
