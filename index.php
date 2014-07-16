@@ -8,6 +8,10 @@
     {
         $_SESSION['nom_utilisateur'] = NULL;
     }
+    if(!isset($_SESSION['prenom_utilisateur']))
+    {
+        $_SESSION['prenom_utilisateur'] = NULL;
+    }
     //var_dump($_SESSION['ID_utilisateur']) ;
     //var_dump($_SESSION['nom_utilisateur']);
 

@@ -165,7 +165,7 @@ class Controler
         }
     
     
-        public function validerFormulaireClient()
+        private function validerFormulaireClient()
         {
             $formulaire = new ConfirmationFormulaireInscription($_POST["nom"], $_POST["prenom"], $_POST["mp"], $_POST["cmp"], $_POST["sexe"], $_POST["dob"], $_POST["courriel"], $_POST["ville"], $_POST["province"]);
             $validation = $formulaire->validation();
@@ -193,7 +193,7 @@ class Controler
          }
     
     
-        public function validerFormulaireAgence()
+        private function validerFormulaireAgence()
         {
             $formulaire = new ConfirmationFormulaireAgence($_POST["nom"], $_POST["courriel"], $_POST["siteweb"], $_POST["telephone"], $_POST["nbrue"], $_POST["nomrue"], $_POST["ville"], $_POST["province"]);
             //$validation = $formulaire->validation();
@@ -202,22 +202,30 @@ class Controler
             
          }
 
-        public function connexionCompte()
+        private function connexionCompte()
         {
             $log = new ConnectionCompte($_POST["courrielUtilisateur"] , $_POST["MPUtilisateur"]);
             //echo "login Info<br/>";
             if($log->getInfoCompte() == NULL)
             {
-                echo "mauvais utilisateur";
+                $oNav = new Nav();
+                $oNav->afficheNavigateur('accueil');
+
+                $page = new Accueil();
+                $page->afficheContenuAccueil();
             }
             else
             {
-                echo "<pre>".print_r($log->getInfoCompte(),true)."</pre>";
+                //echo "<pre>".print_r($log->getInfoCompte(),true)."</pre>";
                 //echo "id compte: ".$log->getIDCompte()."<br/>";
                 $_SESSION["utilisateur"] = $log->getIDCompte();
-                echo "id compte: ".$_SESSION["utilisateur"]."<br/>";
-                echo "prenom compte: ".$log->getPrenomCompte()."<br/>";
-                echo "nom compte: ".$log->getNomCompte()."<br/>";
+                //echo "id compte: ".$_SESSION["utilisateur"]."<br/>";
+                //echo "prenom compte: ".$log->getPrenomCompte()."<br/>";
+                $_SESSION["nom_utilisateur"] = $log->getNomCompte();
+                //echo "nom compte: ".$log->getNomCompte()."<br/>";
+                $_SESSION["prenom_utilisateur"] = $log->getPrenomCompte();
+                //echo "prenom compte: ".$_SESSION["prenom_utilisateur"]."<br/>";
+                //echo "nom compte: ".$_SESSION["nom_utilisateur"]."<br/>";
             }
         }
         
