@@ -5,6 +5,7 @@ class ConnectionCompte {
 	private $BD;
 	private $motPasse;
 	private $courriel;
+	private $infoCompte;
 
     
 	function __construct ($courriel ="", $mp="")
@@ -12,7 +13,7 @@ class ConnectionCompte {
 		$this->BD = BD::getInstance("e1395342","dbconnect");
 		$this->setCourriel($courriel);
 		$this->setMotPasse($mp);
-		$this->requeteBD();
+		$this->setInfoCompte();
 	}
 
 		
@@ -44,7 +45,7 @@ class ConnectionCompte {
 	 */
 	public function getMotPasse() 
 	{	
-		return $this->hash('sha256',$this->motPasse);
+		return hash('sha256',$this->motPasse);
 	}
 
 	private function setMotPasse($str) 
@@ -57,7 +58,17 @@ class ConnectionCompte {
 		$req = "SELECT * FROM `mi_utilisateurs` WHERE courriel = '".$this->getCourriel()."' AND mot_de_passe = '".$this->getMotPasse()."';";
 		var_dump($req);
 		$idp = $this->BD->getBD()->query($req);
-		var_dump($idp);
+		//var_dump($idp);
+		echo "<pre>".print_r($idp,true)."</pre>";
+		return $idp;
+	}
+
+	private function setInfoCompte()
+	{
+		$mysql = $this->requeteBD();
+		//echo "<pre>".print_r($mysql,true)."</pre>";
+		$this->infoCompte = mysqli_fetch_assoc($mysql);
+		echo "<pre>".print_r($this->infoCompte,true)."</pre>";
 	}
 }
 
