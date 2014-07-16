@@ -42,19 +42,31 @@ class Nav {
                      </li>
                  </ul>
                  <?php if ($_GET['page']<>'agenceAccueil') { ?>
-                 
-                 <form action="index.php?page=connexionCompte" class="navbar-form navbar-left" method="POST">
-                     <div class="form-group">
-                         <input type="text" placeholder="Courriel" name="courrielUtilisateur" class="form-control">
-                     </div>
-                     <div class="form-group">
-                         <input type="password" placeholder="Mot de passe" name="MPUtilisateur" class="form-control">
-                     </div>
-                     <button type="submit" class="btn btn-success">Connexion</button>
-                     <div class="form-group divCreerCompte">
-                         <a href="index.php?page=creerCompte"><p>Créer un</p><p>compte</p></a></div>
-                 </form>
-                 
+                 <?php if($_SESSION['ID_utilisateur'] == NULL)
+                 {
+                 echo '<form action="index.php?page=connexionCompte" class="navbar-form navbar-left" method="POST">
+                         <div class="form-group">
+                             <input type="text" placeholder="Courriel" name="courrielUtilisateur" class="form-control" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+[.][a-zA-Z]+$">
+                         </div>
+                         <div class="form-group">
+                             <input type="password" placeholder="Mot de passe" name="MPUtilisateur" class="form-control pattern="^[a-zA-Z0-9]+$">
+                         </div>
+                         <button type="submit" class="btn btn-success">Connexion</button>
+                         <div class="form-group divCreerCompte">
+                             <a href="index.php?page=creerCompte"><p>Créer un</p><p>compte</p></a></div>
+                     </form>';
+                 } 
+                 else
+                {
+                    //echo $_SESSION['prenom_utilisateur']." ".$_SESSION['nom_utilisateur'];
+                    echo '<form action="index.php?page=deconnexionCompte" class="navbar-form navbar-left" method="POST">
+                         <div class="form-group">
+                            <label for="Prenom" class="control-label">Bienvenue <a href="index.php?page=agenceAccueil">'.$_SESSION['prenom_utilisateur'].' '.$_SESSION['nom_utilisateur'].'</a></label>
+                         </div>
+                         <button type="submit" class="btn btn-success">Déconnexion</button>
+                     </form>';
+                }
+                 ?>
                  <?php } ?>
                  
                  <!-- nav -->

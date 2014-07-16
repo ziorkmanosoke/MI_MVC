@@ -56,6 +56,9 @@ class Controler
                             break;  
                     case 'connexionCompte':
                             $this->connexionCompte();
+                            break; 
+                    case 'deconnexionCompte':
+                            $this->deconnexionCompte();
                             break;         
                     default:
                             $this->afficherAccueil();
@@ -204,9 +207,10 @@ class Controler
 
         private function connexionCompte()
         {
+            $valide = new ConfirmationChampsConnection($_POST["courrielUtilisateur"] , $_POST["MPUtilisateur"]);
             $log = new ConnectionCompte($_POST["courrielUtilisateur"] , $_POST["MPUtilisateur"]);
             //echo "login Info<br/>";
-            if($log->getInfoCompte() == NULL)
+            if($log->getInfoCompte() == NULL || !$valide)
             {
                 $oNav = new Nav();
                 $oNav->afficheNavigateur('accueil');
@@ -216,17 +220,33 @@ class Controler
             }
             else
             {
+                $_SESSION["ID_utilisateur"] = $log->getIDCompte();
+                $_SESSION["nom_utilisateur"] = $log->getNomCompte();
+                $_SESSION["prenom_utilisateur"] = $log->getPrenomCompte();
+                $oNav = new Nav();
+                $oNav->afficheNavigateur('accueil');
+
+                $this->agenceAccueil();
                 //echo "<pre>".print_r($log->getInfoCompte(),true)."</pre>";
                 //echo "id compte: ".$log->getIDCompte()."<br/>";
-                $_SESSION["utilisateur"] = $log->getIDCompte();
+                
                 //echo "id compte: ".$_SESSION["utilisateur"]."<br/>";
                 //echo "prenom compte: ".$log->getPrenomCompte()."<br/>";
-                $_SESSION["nom_utilisateur"] = $log->getNomCompte();
+                
                 //echo "nom compte: ".$log->getNomCompte()."<br/>";
-                $_SESSION["prenom_utilisateur"] = $log->getPrenomCompte();
+                
                 //echo "prenom compte: ".$_SESSION["prenom_utilisateur"]."<br/>";
                 //echo "nom compte: ".$_SESSION["nom_utilisateur"]."<br/>";
             }
+        }
+
+        private function deconnexionCompte()
+        {
+            $_SESSION["ID_utilisateur"] = NULL;
+            $_SESSION["nom_utilisateur"] = NULL;
+            $_SESSION["prenom_utilisateur"] = NULL;
+
+            $this->afficherAccueil();
         }
         
         
