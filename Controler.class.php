@@ -53,7 +53,10 @@ class Controler
                             break;
                     case 'ForfaitEntreprise':
                             $this->afficherForfaitEntreprise();
-                            break;           
+                            break;  
+                    case 'connexionCompte':
+                            $this->connexionCompte();
+                            break;         
                     default:
                             $this->afficherAccueil();
                             break;
@@ -198,6 +201,11 @@ class Controler
             //var_dump($validation);
             
          }
+
+        public function connexionCompte()
+        {
+            $log = new ConnectionCompte($_POST["courrielUtilisateur"] , $_POST["MPUtilisateur"]);
+        }
         
         
         

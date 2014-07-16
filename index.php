@@ -2,13 +2,14 @@
     
     if(!isset($_SESSION['ID_utilisateur']))
     {
-        $_SESSION['ID_utilisateur'] = 1;
+        $_SESSION['ID_utilisateur'] = NULL;
     }
-    else
+    if(!isset($_SESSION['nom_utilisateur']))
     {
-        $_SESSION['ID_utilisateur']++;
+        $_SESSION['nom_utilisateur'] = NULL;
     }
-    var_dump($_SESSION['ID_utilisateur']) ;
+    //var_dump($_SESSION['ID_utilisateur']) ;
+    //var_dump($_SESSION['nom_utilisateur']);
 
 /**
  * Fichier de lancement du MVC, Il appel le var.init et le gabarit HTML 

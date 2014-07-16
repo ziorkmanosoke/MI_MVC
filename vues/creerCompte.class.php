@@ -87,6 +87,22 @@ class creerCompte {
                         </section>
                     </article>
 
+
+                    <article class="form-group">
+                        <label for="inputNbRue" class="col-sm-2 control-label">Numero de rue: </label>
+                        <section class="col-sm-4">
+                            <input type="number" class="form-control" id="inputNbRue" name="nbrue" placeholder="Votre numero de rue" min="0">
+                        </section>
+                    </article>
+
+                    <!-- article qui contiendra votre nom de rue-->    
+                    <article class="form-group">
+                        <label for="inputNomRue" class="col-sm-2 control-label">Nom de rue: </label>
+                        <section class="col-sm-4">
+                            <input type="text" class="form-control" id="inputNomRue" name="nomrue" placeholder="Votre nom de rue">
+                        </section>
+                    </article>
+
                     <!-- article qui contiendra votre nom de Ville-->    
                     <article class="form-group">
                         <label for="inputNomVille" class="col-sm-2 control-label">Nom de Ville: </label>
@@ -114,7 +130,13 @@ class creerCompte {
                         </section>
                     </article>
 
-
+                    <!-- article qui contiendra votre code postal-->    
+                    <article class="form-group">
+                        <label for="inputCodePostal" class="col-sm-2 control-label">Code Postal </label>
+                        <section class="col-sm-4">
+                            <input type="text" class="form-control" id="inputCodePostal" name="codePostal" placeholder="Votre code postal">
+                        </section>
+                    </article>
 
                     <article class="form-group">
                         <section class="col-sm-offset-2 col-sm-10">

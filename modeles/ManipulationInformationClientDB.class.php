@@ -45,12 +45,12 @@ class ManipulationInformationClientDB {
 		/*verifie si on a trouve au moin un resultat*/
 		if($idp->num_rows <= 0 && $idp->num_rows > 1)
         {
-            echo "Requete vide";
+            //echo "Requete vide";
             return "";
         }
         else
         {
-            echo "Requete success";
+            //echo "Requete success";
             $id = mysqli_fetch_assoc($idp);
             //echo $id['ID_province'];
             $this->provinceID = $id['ID_province'];
@@ -63,19 +63,20 @@ class ManipulationInformationClientDB {
 	{
 		$req = "SELECT * FROM mi_ville WHERE ville = '".$this->getFormulaire()->getVille()."' AND ID_province  ='".$this->getProvinceID()."'";
 		$idp = $this->BD->getBD()->query($req);
+		var_dump($idp);
 
 		if($idp->num_rows <= 0)
 		{
-			echo "ville non repertorier";
+			//echo "ville non repertorier";
 			//$reqInsert = "INSERT INTO 'mi_ville' ('ID_ville','ID_province','ville') VALUES  ( NULL, ".$this->getProvinceID()." , '".$this->getFormulaire()->getVille()."');";
 $reqInsert ="INSERT INTO `mi_ville` (`ID_ville`, `ID_province`, `ville`) VALUES (NULL, ".$this->getProvinceID().", '".$this->getFormulaire()->getVille()."');";
 var_dump($reqInsert);
 			$this->BD->getBD()->query($reqInsert);
-			//return $last_ID_adresse = $this->DB->getBD()->insert_id; 
+			return $this->DB->getBD()->insert_id; 
 		}
 		else
 		{
-			echo "trouve";
+			//echo "trouve";
 			$info = mysqli_fetch_assoc($idp);
 			return $info;
 		}

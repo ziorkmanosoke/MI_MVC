@@ -43,12 +43,12 @@ class Nav {
                  </ul>
                  <?php if ($_GET['page']<>'agenceAccueil') { ?>
                  
-                 <form action="index.php?page=agenceAccueil" class="navbar-form navbar-left" method="POST">
+                 <form action="index.php?page=connexionCompte" class="navbar-form navbar-left" method="POST">
                      <div class="form-group">
-                         <input type="text" placeholder="Courriel" class="form-control">
+                         <input type="text" placeholder="Courriel" name="courrielUtilisateur" class="form-control">
                      </div>
                      <div class="form-group">
-                         <input type="password" placeholder="Mot de passe" class="form-control">
+                         <input type="password" placeholder="Mot de passe" name="MPUtilisateur" class="form-control">
                      </div>
                      <button type="submit" class="btn btn-success">Connexion</button>
                      <div class="form-group divCreerCompte">
