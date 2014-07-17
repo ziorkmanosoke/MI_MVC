@@ -9,6 +9,7 @@ class ManipulationInformationClientDB {
     private $provinceID;
     private $villeID;
     private $adresseID;
+    private $id_utilisateur;
 
 	function __construct ($objet)
 	{
@@ -73,7 +74,7 @@ class ManipulationInformationClientDB {
 			//echo "ville non repertorier";
 			//$reqInsert = "INSERT INTO 'mi_ville' ('ID_ville','ID_province','ville') VALUES  ( NULL, ".$this->getProvinceID()." , '".$this->getFormulaire()->getVille()."');";
 $reqInsert ="INSERT INTO `mi_ville` (`ID_ville`, `ID_province`, `ville`) VALUES (NULL, ".$this->getProvinceID().", '".$this->getFormulaire()->getVille()."');";
-var_dump($reqInsert);
+//var_dump($reqInsert);
 			$this->BD->getBD()->query($reqInsert);
 			return $this->DB->getBD()->insert_id; 
 		}
@@ -111,20 +112,19 @@ var_dump($reqInsert);
 		if ($userDispo)
 		{
 			echo "Disponible<br/>";
-			return false;
+			$req = "INSERT INTO `mi_utilisateurs` (`ID_utilisateurs` ,`nom` ,`prenom` ,`courriel` ,`mot_de_passe` ,`sexe` ,`DOB` ,`ID_adresse` ,`ID_forfait` ,`ID_agence` ,`ID_photo` ,`ID_role` ,`telephone_utilisateur` ,`nom_utilisateur`)VALUES (NULL , '".$this->formulaire->getNom()."', '".$this->formulaire->getPrenom()."', '".$this->formulaire->getCourriel()."', '".$this->formulaire->getMotDePasse()."', '".$this->formulaire->getSexe()."', '".$this->formulaire->getDateNaissance()."', '0', '0', '0', '0', '0', '".$this->formulaire->getTelephone()."', '".$this->formulaire->getNomUtilisateur()."');";
+			//var_dump($req);
+			$this->BD->getBD()->query($req);
+			return true;
 		}
 		else
 		{
 			echo "Pas Disponible<br/>";
-			/*faire operation insert*/
-			return true;
+			return false;
 		}
 		echo "oups pas supposer etre la ";
 	}
 
 }
-
-
-
 
 ?>
