@@ -9,14 +9,11 @@ class ManipulationInformationClientDB {
     private $provinceID;
     private $villeID;
     private $adresseID;
-    private $id_utilisateur;
 
 	function __construct ($objet)
 	{
 		$this->setFormulaire($objet);
 		$this->BD = BD::getInstance("e1395342","dbconnect");
-		//$this->setProvinceID();
-		$this->insertUtilisateur();
 	}
 	
 		
@@ -89,7 +86,7 @@ $reqInsert ="INSERT INTO `mi_ville` (`ID_ville`, `ID_province`, `ville`) VALUES 
 	/*Verifie si le nom utilisateur est disponible dans la db et retourne true si disponible et false si utlise*/
 	private function verificationDisponibilite()
 	{
-		$req = "SELECT * FROM `mi_utilisateurs` WHERE nom_utilisateur = '".$this->formulaire->getNomUtilisateur()."';";
+		$req = "SELECT * FROM `mi_utilisateurs` WHERE nom_utilisateur = '".$this->formulaire->getNomUtilisateur()."' AND courriel = '".$this->formulaire->getCourriel()."';";
 		$idp = $this->BD->getBD()->query($req);
 		if($idp->num_rows <= 0)
 		{

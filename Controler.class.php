@@ -184,6 +184,9 @@ class Controler
                 echo "SUCCESS";
                 //Un objet va gerer le formulaire et envoyer dans db les informations qui son correct
                 $ManipulationClient = new ManipulationInformationClientDB($formulaire);
+                $ManipulationClient->insertUtilisateur();
+
+                $this->afficherChoixforfait();
                 //echo "<pre>".print_r($ManipulationClient,true)."</pre>";
                 //echo $Manipulation->getFormulaire()->getNom();
                 //$req = "INSERT INTO mi_utilisateurs (nom, prenom, courriel, mot_de_passe, sexe, DOB, ID_adresse, ID_forfait, ID_agence, ID_photo, ID_role)" .  "VALUES  ( '".$formulaire->getNom()."' , '".$formulaire->getPrenom()."' , '".$formulaire->getCourriel()."' , '".$formulaire->getMotDePasse()."' , '".$formulaire->getSexe()."' , '".$formulaire->getDateNaissance()."' , 1, 0, 0, 0, 0)";
@@ -194,12 +197,15 @@ class Controler
                 //echo "VILLE<br/>";
                 //echo "<pre>".print_r($ManipulationClient->getVilleID(),true)."</pre>";
                 //echo $ManipulationClient->getProvinceID();
-                $log = new ConnectionCompte($ManipulationClient->getFormulaire()->getCourriel(), $ManipulationClient->getFormulaire()->getConfMotDePasse());
-                var_dump(mysql_fetch_assoc(log));
+                //$log = new ConnectionCompte($ManipulationClient->getFormulaire()->getCourriel(), $ManipulationClient->getFormulaire()->getConfMotDePasse());
+                //var_dump($log);
                 //var_dump($ManipulationClient->getFormulaire()->getCourriel());
                 //var_dump($ManipulationClient->getFormulaire()->getConfMotDePasse());
-                if($log->getInfoCompte() == NULL)
-                {
+                
+                //if($log->getInfoCompte() == NULL)
+                //{
+
+                   // echo "test NULL";
                     /*
                     $oNav = new Nav();
                     $oNav->afficheNavigateur('accueil');
@@ -207,13 +213,15 @@ class Controler
                     $page = new Accueil();
                     $page->afficheContenuAccueil();
                     */
+                /*
                 }
                 else
                 {
+                    echo "test marche";
                     $_SESSION["ID_utilisateur"] = $log->getIDCompte();
                     $_SESSION["nom_utilisateur"] = $log->getNomCompte();
                     $_SESSION["prenom_utilisateur"] = $log->getPrenomCompte();
-
+                */
                 //echo "<pre>".print_r($log->getInfoCompte(),true)."</pre>";
                 //echo "id compte: ".$log->getIDCompte()."<br/>";
                 
@@ -225,7 +233,7 @@ class Controler
                 //echo "prenom compte: ".$_SESSION["prenom_utilisateur"]."<br/>";
                 //echo "nom compte: ".$_SESSION["nom_utilisateur"]."<br/>";
                     //$this->afficherChoixforfait();
-                }    
+                //}    
             }
             else
             {
