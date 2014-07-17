@@ -35,6 +35,13 @@ class creerCompte {
                         </section>
                     </article>
 
+                    <article class="form-group ">
+                        <label for="inputNomUtilisateur"  class="col-sm-2 control-label">Utilisateur: </label>
+                        <section class="col-sm-4">
+                            <input type="text" class="form-control" id="inputNomUtilisateur" name="nomUtilisateur" placeholder="Votre Nom Utilisateur" >
+                        </section>
+                    </article>
+
                     <!-- article qui contiendra le mot de passe--> 
                     <article class="form-group ">
                         <label for="inputMP" class="col-sm-2 control-label">Mot de passe: </label>
@@ -87,6 +94,12 @@ class creerCompte {
                         </section>
                     </article>
 
+                    <article class="form-group">
+                        <label for="inputTelephone" class="col-sm-2 control-label">Telephone: </label>
+                        <section class="col-sm-4">
+                            <input type="text" name="telephoneUtilisateur" class="form-control" id="inputTelephone" placeholder="15141231234">
+                        </section>
+                    </article>
 
                     <article class="form-group">
                         <label for="inputNbRue" class="col-sm-2 control-label">Numero de rue: </label>
@@ -134,7 +147,7 @@ class creerCompte {
                     <article class="form-group">
                         <label for="inputCodePostal" class="col-sm-2 control-label">Code Postal </label>
                         <section class="col-sm-4">
-                            <input type="text" class="form-control" id="inputCodePostal" name="codePostal" placeholder="Votre code postal">
+                            <input type="text" class="form-control" id="inputCodePostal" name="codePostal" placeholder="a1a 1a1">
                         </section>
                     </article>
 

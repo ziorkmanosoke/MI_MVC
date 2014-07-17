@@ -14,7 +14,14 @@ class ConfirmationFormulaireInscription {
     private $ville;
     private $province;
 
-	function __construct ($nom = '', $prenom = '', $mp = '', $cmp ='', $sexe ='', $dob='', $courriel='', $ville='', $province='')
+    private $nomutilisateur;
+    private $telephone;
+    private $norue;
+    private $nomrue;
+    private $codepostal;
+
+	function __construct ($nom = '', $prenom = '', $mp = '', $cmp ='', $sexe ='', $dob='', $courriel='', $ville='', $province='',
+        $utilisateur='', $telephone='', $nbrue = '', $nomrue='', $codepostal='')
 	{  
         $this->setNom($nom);
         $this->setPrenom($prenom);
@@ -25,7 +32,11 @@ class ConfirmationFormulaireInscription {
         $this->setCourriel($courriel);
         $this->setVille($ville);
         $this->setProvince($province);
-        
+        $this->setNomRue($nomrue);
+        $this->setCodePostal($codepostal);
+        $this->setNumeroDeRue($nbrue);
+        $this->setNomUtilisateur($utilisateur);
+        $this->setTelephone($telephone);
         //$this->test($this->getNom());
         //$this->test($this->getPrenom());
         //$this->test($this->getMotDePasse());
@@ -149,7 +160,62 @@ class ConfirmationFormulaireInscription {
     {
         $this->province = $str;
     }
+
+    /*get et set de telephone*/
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
     
+    private function setTelephone($str)
+    {
+        $this->telephone = $str;
+    }
+
+    /*get et set de nom utilisateur*/
+    public function getNomUtilisateur()
+    {
+        return $this->nomutilisateur;
+    }
+    
+    private function setNomUtilisateur($str)
+    {
+        $this->nomutilisateur = $str;
+    }
+
+    /*get et set de no rue*/
+    public function getNumeroDeRue()
+    {
+        return $this->norue;
+    }
+    
+    private function setNumeroDeRue($str)
+    {
+        $this->norue = $str;
+    }
+
+    /*get et set de nom de la rue*/
+    public function getNomRue()
+    {
+        return $this->nomrue;
+    }
+    
+    private function setNomRue($str)
+    {
+        $this->nomrue = $str;
+    }
+
+    /*get et set de code postal*/
+    public function getCodePostal()
+    {
+        return $this->codepostal;
+    }
+    
+    private function setCodePostal($str)
+    {
+        $this->codepostal = $str;
+    }
+
     /*function qui va valider si les informations recu son correcte dependant des normes pre établis et retourne true ou false si tous est correcte*/
     public function validation()
     {
@@ -193,6 +259,36 @@ class ConfirmationFormulaireInscription {
         if ($motDePasse != 1)
         {
             echo "mp fail";
+            return false;
+        }
+        $validationNumeroRue = $this->verificationNum($this->getNumeroDeRue());
+        if ($validationNumeroRue != 1)
+        {
+            echo "numero rue fail";
+            return false;
+        }
+        $validationNomRue = $this->verificationAlphaEx($this->getNomRue());
+        if ($validationNomRue != 1)
+        {
+            echo "nom rue fail";
+            return false;
+        }
+        $validationNomutilisateur = $this->verificationAlphaNum($this->getNomUtilisateur());
+        if ($validationNomutilisateur != 1)
+        {
+            echo "nom utilisateur fail";
+            return false;
+        }
+        $validationTelephone = $this->verificationNum($this->getTelephone());
+        if ($validationTelephone != 1)
+        {
+            echo "telephone fail";
+            return false;
+        }
+        $validationCodePostal = $this->verificationCodepostal($this->getCodePostal());
+        if ($validationCodePostal != 1)
+        {
+            echo "code postal fail";
             return false;
         }
         /*si tous les test on passer avec success, retourne vrai*/
@@ -280,7 +376,7 @@ class ConfirmationFormulaireInscription {
     
     public function validationMotDePasse($mp, $cmp)
     {
-        /*regarde si les */
+        /*regarde si le mot de passe et sa confirmation son conforme au regex*/
         if (($this->verificationAlphaNum($mp)) && ($this->verificationAlphaNum($cmp)))
         {
             if ($mp == $cmp)
@@ -293,5 +389,16 @@ class ConfirmationFormulaireInscription {
             }
         }
         
+    }
+
+    public function verificationCodepostal($str)
+    {
+        preg_match("/^[a-zA-Z][0-9][a-zA-Z][ ][0-9][a-zA-Z][0-9]$/",$str,$result);
+        //On cherche tout les caractères autre que [0-9]
+        //echo "<pre>".print_r($result,true)."</pre>";
+        if(empty($result)){//si on trouve des caractère autre que 0-9
+            return false;
+        }
+        return true;
     }
 }

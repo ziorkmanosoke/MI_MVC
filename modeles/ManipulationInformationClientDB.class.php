@@ -7,12 +7,15 @@ class ManipulationInformationClientDB {
     private $formulaire;
     private $BD;
     private $provinceID;
+    private $villeID;
+    private $adresseID;
 
 	function __construct ($objet)
 	{
 		$this->setFormulaire($objet);
 		$this->BD = BD::getInstance("e1395342","dbconnect");
-		$this->setProvinceID();
+		//$this->setProvinceID();
+		$this->insertUtilisateur();
 	}
 	
 		
@@ -63,7 +66,7 @@ class ManipulationInformationClientDB {
 	{
 		$req = "SELECT * FROM mi_ville WHERE ville = '".$this->getFormulaire()->getVille()."' AND ID_province  ='".$this->getProvinceID()."'";
 		$idp = $this->BD->getBD()->query($req);
-		var_dump($idp);
+		//var_dump($idp);
 
 		if($idp->num_rows <= 0)
 		{
@@ -78,8 +81,45 @@ var_dump($reqInsert);
 		{
 			//echo "trouve";
 			$info = mysqli_fetch_assoc($idp);
-			return $info;
+			return $info['ID_ville'];
 		}
+	}
+
+	/*Verifie si le nom utilisateur est disponible dans la db et retourne true si disponible et false si utlise*/
+	private function verificationDisponibilite()
+	{
+		$req = "SELECT * FROM `mi_utilisateurs` WHERE nom_utilisateur = '".$this->formulaire->getNomUtilisateur()."';";
+		$idp = $this->BD->getBD()->query($req);
+		if($idp->num_rows <= 0)
+		{
+			//echo "valide";
+			return true;
+			//return $this->DB->getBD()->insert_id; 
+		}
+		else
+		{
+			//echo "utilise";
+			return false;
+			//$info = mysqli_fetch_assoc($idp);
+			//return $info['ID_ville'];
+		}
+	}
+	/*insert le formulaire dans la db si lutilisateur n'est pas deja utiliser*/
+	public function insertUtilisateur()
+	{
+		$userDispo = $this->verificationDisponibilite();
+		if ($userDispo)
+		{
+			echo "Disponible<br/>";
+			return false;
+		}
+		else
+		{
+			echo "Pas Disponible<br/>";
+			/*faire operation insert*/
+			return true;
+		}
+		echo "oups pas supposer etre la ";
 	}
 
 }
