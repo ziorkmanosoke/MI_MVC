@@ -174,7 +174,7 @@ class ConfirmationFormulaireAgence {
             echo "telephone fail";
             return false;
         }
-        $validationNumeroRue = $this->verificationNum($this->getNumeroDeRue());
+        $validationNumeroRue = $this->verificationNum($this->getNumeroRue());
         if ($validationNumeroRue != 1)
         {
             echo "numero rue fail";
@@ -304,10 +304,21 @@ class ConfirmationFormulaireAgence {
         
     }
 
+    public function verificationCodepostal($str)
+    {
+        preg_match("/^[a-zA-Z][0-9][a-zA-Z][ ][0-9][a-zA-Z][0-9]$/",$str,$result);
+        //On cherche tout les caractères autre que [0-9]
+        //echo "<pre>".print_r($result,true)."</pre>";
+        if(empty($result)){//si on trouve des caractère autre que 0-9
+            return false;
+        }
+        return true;
+    }
+
     /*regex pris de http://regexlib.com/Search.aspx?k=url&AspxAutoDetectCookieSupport=1*/
     public function verificationSiteWeb($site)
     {
-        preg_match("/^[a-zA-Z0-9\-\.]+\.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU)$/",$str,$result);
+        preg_match("/^[a-zA-Z0-9\-\.]+\.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU)$/",$site,$result);
         //On cherche tout les caractères autre que [0-9]
         //echo "<pre>".print_r($result,true)."</pre>";
         if(empty($result)){//si on trouve des caractère autre que 0-9

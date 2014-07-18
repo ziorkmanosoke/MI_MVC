@@ -246,9 +246,34 @@ class Controler
         
         private function validerFormulaireAgence()
         {
-            $formulaire = new ConfirmationFormulaireAgence($_POST["nom"], $_POST["courriel"], $_POST["siteweb"], $_POST["telephone"], $_POST["nbrue"], $_POST["nomrue"], $_POST["ville"], $_POST["province"]);
-            //$validation = $formulaire->validation();
-            echo "<pre>".print_r($formulaire,true)."</pre>";
+
+            $formulaire = new ConfirmationFormulaireAgence($_POST["nom"], $_POST["courriel"], $_POST["siteweb"], $_POST["telephone"], $_POST["nbrue"], $_POST["nomrue"], $_POST["ville"], $_POST["province"], $_POST["codePostal"]);
+            $validation = $formulaire->validation();
+
+            if($validation)
+            {
+                //echo "SUCCESS VALIDATION<br/>";
+                //Un objet va gerer le formulaire et envoyer dans db les informations qui son correct
+                $ManipulationClient = new ManipulationInformationAgenceDB($formulaire);
+                $operation = $ManipulationClient->insertAgence();
+
+                if ($operation)
+                {
+                    $this->afficherForfaitEntreprise();
+                }
+                else
+                {
+                    $this->creationAgence();
+                }
+                //$this->afficherChoixforfait();
+            }
+            else
+            {
+                echo "ECHEC VALIDATION<br/>";
+                /*retourne a la page de formulaire dinscription agence*/
+                $this->creationAgence();
+            }
+            //echo "<pre>".print_r($formulaire,true)."</pre>";
             //var_dump($validation);
             
          }

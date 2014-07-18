@@ -34,7 +34,7 @@ class creerAgence {
             <article class="form-group">
                 <label for="inputSiteWeb" class="col-sm-2 control-label">Site Web: </label>
                 <section class="col-sm-4">
-                    <input type="url" class="form-control" id="inputSiteWeb" name="siteweb" placeholder="Votre site web" required>
+                    <input type="text" class="form-control" id="inputSiteWeb" name="siteweb" placeholder="Votre site web" required>
                 </section>
             </article>
 
