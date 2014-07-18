@@ -1,6 +1,5 @@
 <?php
 /*
-
  */
 class ManipulationInformationClientDB {
 	
@@ -108,7 +107,7 @@ $reqInsert ="INSERT INTO `mi_ville` (`ID_ville`, `ID_province`, `ville`) VALUES 
 		$userDispo = $this->verificationDisponibilite();
 		if ($userDispo)
 		{
-			echo "Disponible<br/>";
+			//echo "Disponible<br/>";
 			$req = "INSERT INTO `mi_utilisateurs` (`ID_utilisateurs` ,`nom` ,`prenom` ,`courriel` ,`mot_de_passe` ,`sexe` ,`DOB` ,`ID_adresse` ,`ID_forfait` ,`ID_agence` ,`ID_photo` ,`ID_role` ,`telephone_utilisateur` ,`nom_utilisateur`)VALUES (NULL , '".$this->formulaire->getNom()."', '".$this->formulaire->getPrenom()."', '".$this->formulaire->getCourriel()."', '".$this->formulaire->getMotDePasse()."', '".$this->formulaire->getSexe()."', '".$this->formulaire->getDateNaissance()."', '0', '0', '0', '0', '0', '".$this->formulaire->getTelephone()."', '".$this->formulaire->getNomUtilisateur()."');";
 			//var_dump($req);
 			$this->BD->getBD()->query($req);
@@ -116,10 +115,10 @@ $reqInsert ="INSERT INTO `mi_ville` (`ID_ville`, `ID_province`, `ville`) VALUES 
 		}
 		else
 		{
-			echo "Pas Disponible<br/>";
+			//echo "Pas Disponible<br/>";
 			return false;
 		}
-		echo "oups pas supposer etre la ";
+		//echo "oups pas supposer etre la ";
 	}
 
 }

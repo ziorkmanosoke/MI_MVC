@@ -1,14 +1,5 @@
 <?php
-/**
- * Class Controler
- * Gère les requêtes HTTP
- * 
- * @author Jonathan Martel
- * @version 1.0
- * @update 2013-12-10
- * @license Creative Commons BY-NC 3.0 (Licence Creative Commons Attribution - Pas d’utilisation commerciale 3.0 non transposé)
- * @license http://creativecommons.org/licenses/by-nc/3.0/deed.fr
- * 
+/* 
  */
 
 class Controler 
@@ -181,7 +172,7 @@ class Controler
             //var_dump($validation);
             if($validation)
             {
-                echo "SUCCESS";
+                //echo "SUCCESS";
                 //Un objet va gerer le formulaire et envoyer dans db les informations qui son correct
                 $ManipulationClient = new ManipulationInformationClientDB($formulaire);
                 $operation = $ManipulationClient->insertUtilisateur();
@@ -193,12 +184,7 @@ class Controler
                     //echo "login Info<br/>";
                     if($log->getInfoCompte() == NULL || !$valide)
                     {
-                        echo "probleme";
-                        //$oNav = new Nav();
-                        //$oNav->afficheNavigateur('accueil');
-
-                        //$page = new Accueil();
-                        //$page->afficheContenuAccueil();
+                        //echo "probleme";
                     }
                     else
                     {
@@ -207,72 +193,13 @@ class Controler
                         $_SESSION["prenom_utilisateur"] = $log->getPrenomCompte();
 
                         $this->afficherChoixforfait();
-                        //$this->agenceAccueil();
-                        //echo "<pre>".print_r($log->getInfoCompte(),true)."</pre>";
-                        //echo "id compte: ".$log->getIDCompte()."<br/>";
-                        
-                        //echo "id compte: ".$_SESSION["utilisateur"]."<br/>";
-                        //echo "prenom compte: ".$log->getPrenomCompte()."<br/>";
-                        
-                        //echo "nom compte: ".$log->getNomCompte()."<br/>";
-                        
-                        //echo "prenom compte: ".$_SESSION["prenom_utilisateur"]."<br/>";
-                        //echo "nom compte: ".$_SESSION["nom_utilisateur"]."<br/>";
                     }
                     
                 }
                 else
                 {
                     $this->creationCompte();
-                }
-                
-                //echo "<pre>".print_r($ManipulationClient,true)."</pre>";
-                //echo $Manipulation->getFormulaire()->getNom();
-                //$req = "INSERT INTO mi_utilisateurs (nom, prenom, courriel, mot_de_passe, sexe, DOB, ID_adresse, ID_forfait, ID_agence, ID_photo, ID_role)" .  "VALUES  ( '".$formulaire->getNom()."' , '".$formulaire->getPrenom()."' , '".$formulaire->getCourriel()."' , '".$formulaire->getMotDePasse()."' , '".$formulaire->getSexe()."' , '".$formulaire->getDateNaissance()."' , 1, 0, 0, 0, 0)";
-                //$req = "SELECT * FROM mi_province WHERE province = '".$formulaire->getProvince()."'";
-                //$req = "SELECT * FROM mi_ville WHERE ville = '".$formulaire->getVille()."'";
-                //echo "PROVINCE<br/>";
-                //echo "<pre>".print_r($ManipulationClient->getProvinceID(),true)."</pre>";
-                //echo "VILLE<br/>";
-                //echo "<pre>".print_r($ManipulationClient->getVilleID(),true)."</pre>";
-                //echo $ManipulationClient->getProvinceID();
-                //$log = new ConnectionCompte($ManipulationClient->getFormulaire()->getCourriel(), $ManipulationClient->getFormulaire()->getConfMotDePasse());
-                //var_dump($log);
-                //var_dump($ManipulationClient->getFormulaire()->getCourriel());
-                //var_dump($ManipulationClient->getFormulaire()->getConfMotDePasse());
-                
-                //if($log->getInfoCompte() == NULL)
-                //{
-
-                   // echo "test NULL";
-                    /*
-                    $oNav = new Nav();
-                    $oNav->afficheNavigateur('accueil');
-
-                    $page = new Accueil();
-                    $page->afficheContenuAccueil();
-                    */
-                /*
-                }
-                else
-                {
-                    echo "test marche";
-                    $_SESSION["ID_utilisateur"] = $log->getIDCompte();
-                    $_SESSION["nom_utilisateur"] = $log->getNomCompte();
-                    $_SESSION["prenom_utilisateur"] = $log->getPrenomCompte();
-                */
-                //echo "<pre>".print_r($log->getInfoCompte(),true)."</pre>";
-                //echo "id compte: ".$log->getIDCompte()."<br/>";
-                
-                //echo "id compte: ".$_SESSION["utilisateur"]."<br/>";
-                //echo "prenom compte: ".$log->getPrenomCompte()."<br/>";
-                
-                //echo "nom compte: ".$log->getNomCompte()."<br/>";
-                
-                //echo "prenom compte: ".$_SESSION["prenom_utilisateur"]."<br/>";
-                //echo "nom compte: ".$_SESSION["nom_utilisateur"]."<br/>";
-                    //$this->afficherChoixforfait();
-                //}    
+                }  
             }
             else
             {
@@ -295,19 +222,21 @@ class Controler
                 $ManipulationClient = new ManipulationInformationAgenceDB($formulaire);
                 $operation = $ManipulationClient->insertAgence();
 
+                /*si operation recois false, il reste a la page de creation agence*/
                 if ($operation)
                 {
+                    //echo "Id fraichement creez $operation";
                     $this->afficherForfaitEntreprise();
                 }
+                /*autrement il va a la page de selection de forfait car il est fonctionnel*/
                 else
                 {
                     $this->creationAgence();
                 }
-                //$this->afficherChoixforfait();
             }
             else
             {
-                echo "ECHEC VALIDATION<br/>";
+                //echo "ECHEC VALIDATION<br/>";
                 /*retourne a la page de formulaire dinscription agence*/
                 $this->creationAgence();
             }

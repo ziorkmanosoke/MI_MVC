@@ -4,6 +4,7 @@
  * Description of creerCompte
  *
  * @author bouchra
+ * @edit Alexandre Lacerte
  */
 class creerCompte {
  

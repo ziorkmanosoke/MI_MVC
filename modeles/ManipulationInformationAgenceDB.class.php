@@ -1,14 +1,5 @@
 <?php
-/**
- * Class Modele
- * Template de classe modèle. Dupliquer et modifier pour votre usage.
- * 
- * @author Jonathan Martel
- * @version 1.0
- * @update 2013-12-11
- * @license Creative Commons BY-NC 3.0 (Licence Creative Commons Attribution - Pas d’utilisation commerciale 3.0 non transposé)
- * @license http://creativecommons.org/licenses/by-nc/3.0/deed.fr
- * 
+/*
  */
 class ManipulationInformationAgenceDB {
 	
@@ -50,7 +41,7 @@ class ManipulationInformationAgenceDB {
 
 	public function setProvinceID()
 	{
-		$req = "SELECT ID_province FROM mi_province WHERE province = '".$this->getFormulaire()->getProvince()."'";
+		$req = "SELECT * FROM mi_province WHERE province = '".$this->getFormulaire()->getProvince()."'";
 		$idp = $this->BD->getBD()->query($req);
 		/*verifie si on a trouve au moin un resultat*/
 		if($idp->num_rows <= 0 && $idp->num_rows > 1)
@@ -71,6 +62,7 @@ class ManipulationInformationAgenceDB {
 	/*verifie si ville existe autrement la creez et retourne sa valeur ID*/
 	public function getVilleID()
 	{
+
 		$req = "SELECT * FROM mi_ville WHERE ville = '".$this->getFormulaire()->getVille()."' AND ID_province  ='".$this->getProvinceID()."'";
 		$idp = $this->BD->getBD()->query($req);
 		//var_dump($idp);
@@ -82,7 +74,7 @@ class ManipulationInformationAgenceDB {
 $reqInsert ="INSERT INTO `mi_ville` (`ID_ville`, `ID_province`, `ville`) VALUES (NULL, ".$this->getProvinceID().", '".$this->getFormulaire()->getVille()."');";
 //var_dump($reqInsert);
 			$this->BD->getBD()->query($reqInsert);
-			return $this->DB->getBD()->insert_id; 
+			return $this->BD->getBD()->insert_id; 
 		}
 		else
 		{
@@ -121,6 +113,9 @@ $reqInsert ="INSERT INTO `mi_ville` (`ID_ville`, `ID_province`, `ville`) VALUES 
 			$req = "INSERT INTO `mi_agence` (`ID_agence`, `nom`, `courriel`, `siteweb`, `telephone`, `ID_adresse`, `ID_photo`) VALUES (NULL, '".$this->formulaire->getNom()."', '".$this->formulaire->getCourriel()."', '".$this->formulaire->getSiteWeb()."', '".$this->formulaire->getTelephone()."', '0', '0');";
 			//var_dump($req);
 			$this->BD->getBD()->query($req);
+			/*retourne le ID fraichement creez de l'agence*/
+			//echo 
+			$this->lierAgence($this->BD->getBD()->insert_id);
 			return true;
 		}
 		else
@@ -128,7 +123,18 @@ $reqInsert ="INSERT INTO `mi_ville` (`ID_ville`, `ID_province`, `ville`) VALUES 
 			//echo "Pas Disponible<br/>";
 			return false;
 		}
-		echo "oups pas supposer etre la ";
+		//echo "oups pas supposer etre la ";
+	}
+
+	private function lierAgence($id)
+	{
+		//echo "dernier id ajouter: ".$id;
+		if(isset($_SESSION['ID_utilisateur']))
+		{
+			$req = "UPDATE `mi_utilisateurs` SET `ID_agence` = '".$id."' WHERE `ID_utilisateurs` ='".$_SESSION['ID_utilisateur']."';";
+			$this->BD->getBD()->query($req);
+			//echo "<br/>utilisateur connecter: ".$_SESSION['ID_utilisateur'];
+		}
 	}
 
 }

@@ -1,14 +1,5 @@
 <?php
-/**
- * Class Modele
- * Template de classe modèle. Dupliquer et modifier pour votre usage.
- * 
- * @author Jonathan Martel
- * @version 1.0
- * @update 2013-12-11
- * @license Creative Commons BY-NC 3.0 (Licence Creative Commons Attribution - Pas d’utilisation commerciale 3.0 non transposé)
- * @license http://creativecommons.org/licenses/by-nc/3.0/deed.fr
- * 
+/*
  */
 class ConfirmationChampsConnection {
 	
@@ -51,13 +42,13 @@ class ConfirmationChampsConnection {
     	$validationCourriel = $this->verificationEmail($this->getCourriel());
         if ($validationCourriel != 1)
         {
-            echo "courriel fail";
+            //echo "courriel fail";
             return false;
         }
         $motDePasse = $this->verificationAlphaNum($this->getMotDePasse());
         if ($motDePasse != 1)
         {
-            echo "mp fail";
+            //echo "mp fail";
             return false;
         }
         return true;
