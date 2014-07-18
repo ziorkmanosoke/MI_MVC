@@ -25,17 +25,6 @@ class ConfirmationFormulaireAgence {
         $this->setVille($ville);
         $this->setProvince($province);
         $this->setCodePostal($codepostal);
-        //$this->test($this->getNom());
-        //$this->test($this->getPrenom());
-        //$this->test($this->getMotDePasse());
-        //$this->test($this->getConfMotDePasse());
-        //$this->test($this->getSexe());
-        //$this->test($this->getDateNaissance());
-        //$this->test($this->getCourriel());
-        //$this->test($this->getVille());
-        //$this->test($this->getProvince());  
-        
-        //$this->validation();
 	}
     
     /*get et set de nom de la compagnie*/

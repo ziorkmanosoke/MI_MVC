@@ -25,8 +25,7 @@ class Controler
                             $this->afficherAccueil();
                             break;
                     case 'creerCompte':
-                            //$this->creationCompte();
-                            $this->creationAgence();
+                            $this->creationCompte();
                             break; 
                     case 'forfait':
                             $this->afficherForfait();
@@ -185,9 +184,48 @@ class Controler
                 echo "SUCCESS";
                 //Un objet va gerer le formulaire et envoyer dans db les informations qui son correct
                 $ManipulationClient = new ManipulationInformationClientDB($formulaire);
-                $ManipulationClient->insertUtilisateur();
+                $operation = $ManipulationClient->insertUtilisateur();
 
-                $this->afficherChoixforfait();
+                if ($operation)
+                {
+                    $valide = new ConfirmationChampsConnection($_POST["courriel"] , $_POST["mp"]);
+                    $log = new ConnectionCompte($_POST["courriel"] , $_POST["mp"]);
+                    //echo "login Info<br/>";
+                    if($log->getInfoCompte() == NULL || !$valide)
+                    {
+                        echo "probleme";
+                        //$oNav = new Nav();
+                        //$oNav->afficheNavigateur('accueil');
+
+                        //$page = new Accueil();
+                        //$page->afficheContenuAccueil();
+                    }
+                    else
+                    {
+                        $_SESSION["ID_utilisateur"] = $log->getIDCompte();
+                        $_SESSION["nom_utilisateur"] = $log->getNomCompte();
+                        $_SESSION["prenom_utilisateur"] = $log->getPrenomCompte();
+
+                        $this->afficherChoixforfait();
+                        //$this->agenceAccueil();
+                        //echo "<pre>".print_r($log->getInfoCompte(),true)."</pre>";
+                        //echo "id compte: ".$log->getIDCompte()."<br/>";
+                        
+                        //echo "id compte: ".$_SESSION["utilisateur"]."<br/>";
+                        //echo "prenom compte: ".$log->getPrenomCompte()."<br/>";
+                        
+                        //echo "nom compte: ".$log->getNomCompte()."<br/>";
+                        
+                        //echo "prenom compte: ".$_SESSION["prenom_utilisateur"]."<br/>";
+                        //echo "nom compte: ".$_SESSION["nom_utilisateur"]."<br/>";
+                    }
+                    
+                }
+                else
+                {
+                    $this->creationCompte();
+                }
+                
                 //echo "<pre>".print_r($ManipulationClient,true)."</pre>";
                 //echo $Manipulation->getFormulaire()->getNom();
                 //$req = "INSERT INTO mi_utilisateurs (nom, prenom, courriel, mot_de_passe, sexe, DOB, ID_adresse, ID_forfait, ID_agence, ID_photo, ID_role)" .  "VALUES  ( '".$formulaire->getNom()."' , '".$formulaire->getPrenom()."' , '".$formulaire->getCourriel()."' , '".$formulaire->getMotDePasse()."' , '".$formulaire->getSexe()."' , '".$formulaire->getDateNaissance()."' , 1, 0, 0, 0, 0)";

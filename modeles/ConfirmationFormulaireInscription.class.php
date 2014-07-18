@@ -37,17 +37,6 @@ class ConfirmationFormulaireInscription {
         $this->setNumeroDeRue($nbrue);
         $this->setNomUtilisateur($utilisateur);
         $this->setTelephone($telephone);
-        //$this->test($this->getNom());
-        //$this->test($this->getPrenom());
-        //$this->test($this->getMotDePasse());
-        //$this->test($this->getConfMotDePasse());
-        //$this->test($this->getSexe());
-        //$this->test($this->getDateNaissance());
-        //$this->test($this->getCourriel());
-        //$this->test($this->getVille());
-        //$this->test($this->getProvince());  
-        
-        //$this->validation();
 	}
     
     /*get et set de nom*/
