@@ -90,6 +90,14 @@ class creerAgence {
                 </section>
             </article>
 
+            <!-- article qui contiendra votre code postal-->    
+            <article class="form-group">
+                <label for="inputCodePostal" class="col-sm-2 control-label">Code Postal </label>
+                <section class="col-sm-4">
+                    <input type="text" class="form-control" id="inputCodePostal" name="codePostal" placeholder="a1a 1a1">
+                </section>
+            </article>
+
             <article class="form-group">
                 <section class="col-sm-offset-2 col-sm-10">
                     <input type="submit" class="btn btn-success" value="Continuer"/>

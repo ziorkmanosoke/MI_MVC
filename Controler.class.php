@@ -25,7 +25,8 @@ class Controler
                             $this->afficherAccueil();
                             break;
                     case 'creerCompte':
-                            $this->creationCompte();
+                            //$this->creationCompte();
+                            $this->creationAgence();
                             break; 
                     case 'forfait':
                             $this->afficherForfait();

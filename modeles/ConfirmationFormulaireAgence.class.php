@@ -12,8 +12,9 @@ class ConfirmationFormulaireAgence {
     private $nomrue;
     private $ville;
     private $province;
+    private $codepostal;
 
-	function __construct ($nom = '', $courriel = '', $siteweb = '', $telephone ='', $nbrue ='', $nomrue='' , $ville='', $province='')
+	function __construct ($nom = '', $courriel = '', $siteweb = '', $telephone ='', $nbrue ='', $nomrue='' , $ville='', $province='', $codepostal='')
 	{  
         $this->setNom($nom);
         $this->setCourriel($courriel);
@@ -23,7 +24,7 @@ class ConfirmationFormulaireAgence {
         $this->setNomRue($nomrue);
         $this->setVille($ville);
         $this->setProvince($province);
-        
+        $this->setCodePostal($codepostal);
         //$this->test($this->getNom());
         //$this->test($this->getPrenom());
         //$this->test($this->getMotDePasse());
@@ -125,6 +126,17 @@ class ConfirmationFormulaireAgence {
     {
         $this->province = $str;
     }
+
+    /*get et set de code postal*/
+    public function getCodePostal()
+    {
+        return $this->codepostal;
+    }
+    
+    private function setCodePostal($str)
+    {
+        $this->codepostal = $str;
+    }
     
     
     
@@ -144,22 +156,34 @@ class ConfirmationFormulaireAgence {
             echo "nom fail";
             return false;
         }
-        $validationPrenom = $this->verificationAlpha($this->getPrenom());
-        if ($validationPrenom != 1)
-        {
-            echo "prenom fail";
-            return false;
-        }
         $validationCourriel = $this->verificationEmail($this->getCourriel());
         if ($validationCourriel != 1)
         {
             echo "courriel fail";
             return false;
         }
-        $validationDateDeNaissance = $this-> verificationDoB($this->getDateNaissance());
-        if ($validationDateDeNaissance != 1)
+        $validationSiteWeb = $this->verificationSiteWeb($this->getSiteWeb());
+        if($validationSiteWeb != 1)
         {
-            echo "dob fail";
+            echo "siteweb fail";
+            return false;
+        }
+        $validationTelephone = $this->verificationNum($this->getTelephone());
+        if ($validationTelephone != 1)
+        {
+            echo "telephone fail";
+            return false;
+        }
+        $validationNumeroRue = $this->verificationNum($this->getNumeroDeRue());
+        if ($validationNumeroRue != 1)
+        {
+            echo "numero rue fail";
+            return false;
+        }
+        $validationNomRue = $this->verificationAlphaEx($this->getNomRue());
+        if ($validationNomRue != 1)
+        {
+            echo "nom rue fail";
             return false;
         }
         $validationVille = $this->verificationAlphaEx($this->getVille());
@@ -174,10 +198,10 @@ class ConfirmationFormulaireAgence {
             echo "province fail";
             return false;
         }
-        $motDePasse = $this->validationMotDePasse($this->getMotDePasse(), $this->getConfMotDePasse());
-        if ($motDePasse != 1)
+        $validationCodePostal = $this->verificationCodepostal($this->getCodePostal());
+        if ($validationCodePostal != 1)
         {
-            echo "mp fail";
+            echo "code postal fail";
             return false;
         }
         /*si tous les test on passer avec success, retourne vrai*/
@@ -278,5 +302,17 @@ class ConfirmationFormulaireAgence {
             }
         }
         
+    }
+
+    /*regex pris de http://regexlib.com/Search.aspx?k=url&AspxAutoDetectCookieSupport=1*/
+    public function verificationSiteWeb($site)
+    {
+        preg_match("/^[a-zA-Z0-9\-\.]+\.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU)$/",$str,$result);
+        //On cherche tout les caractères autre que [0-9]
+        //echo "<pre>".print_r($result,true)."</pre>";
+        if(empty($result)){//si on trouve des caractère autre que 0-9
+            return false;
+        }
+        return true;
     }
 }
