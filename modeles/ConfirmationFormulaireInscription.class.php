@@ -211,73 +211,73 @@ class ConfirmationFormulaireInscription {
         $validationNom = $this->verificationAlpha($this->getNom());
         if ($validationNom != 1)
         {
-            echo "nom fail";
+            //echo "nom fail";
             return false;
         }
         $validationPrenom = $this->verificationAlpha($this->getPrenom());
         if ($validationPrenom != 1)
         {
-            echo "prenom fail";
+            //echo "prenom fail";
             return false;
         }
         $validationCourriel = $this->verificationEmail($this->getCourriel());
         if ($validationCourriel != 1)
         {
-            echo "courriel fail";
+            //echo "courriel fail";
             return false;
         }
         $validationDateDeNaissance = $this-> verificationDoB($this->getDateNaissance());
         if ($validationDateDeNaissance != 1)
         {
-            echo "dob fail";
+            //echo "dob fail";
             return false;
         }
         $validationVille = $this->verificationAlphaEx($this->getVille());
         if ($validationVille != 1)
         {
-            echo "ville fail";
+            //echo "ville fail";
             return false;
         }
         $validationProvince = $this->verificationAlphaEx($this->getProvince());
         if ($validationProvince != 1)
         {
-            echo "province fail";
+            //echo "province fail";
             return false;
         }
         $motDePasse = $this->validationMotDePasse($this->getMotDePasse(), $this->getConfMotDePasse());
         if ($motDePasse != 1)
         {
-            echo "mp fail";
+            //echo "mp fail";
             return false;
         }
         $validationNumeroRue = $this->verificationNum($this->getNumeroDeRue());
         if ($validationNumeroRue != 1)
         {
-            echo "numero rue fail";
+            //echo "numero rue fail";
             return false;
         }
         $validationNomRue = $this->verificationAlphaEx($this->getNomRue());
         if ($validationNomRue != 1)
         {
-            echo "nom rue fail";
+            //echo "nom rue fail";
             return false;
         }
         $validationNomutilisateur = $this->verificationAlphaNum($this->getNomUtilisateur());
         if ($validationNomutilisateur != 1)
         {
-            echo "nom utilisateur fail";
+            //echo "nom utilisateur fail";
             return false;
         }
         $validationTelephone = $this->verificationNum($this->getTelephone());
         if ($validationTelephone != 1)
         {
-            echo "telephone fail";
+            //echo "telephone fail";
             return false;
         }
         $validationCodePostal = $this->verificationCodepostal($this->getCodePostal());
         if ($validationCodePostal != 1)
         {
-            echo "code postal fail";
+            //echo "code postal fail";
             return false;
         }
         /*si tous les test on passer avec success, retourne vrai*/
@@ -287,8 +287,8 @@ class ConfirmationFormulaireInscription {
     public function test($i)
     {
         //echo "<pre>".print_r($i,true)."</pre>";
-        var_dump($i);
-        echo "<br/>";
+        //var_dump($i);
+        //echo "<br/>";
     }
 	
 	/**

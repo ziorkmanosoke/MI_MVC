@@ -142,55 +142,55 @@ class ConfirmationFormulaireAgence {
         $validationNom = $this->verificationAlpha($this->getNom());
         if ($validationNom != 1)
         {
-            echo "nom fail";
+            //echo "nom fail";
             return false;
         }
         $validationCourriel = $this->verificationEmail($this->getCourriel());
         if ($validationCourriel != 1)
         {
-            echo "courriel fail";
+            //echo "courriel fail";
             return false;
         }
         $validationSiteWeb = $this->verificationSiteWeb($this->getSiteWeb());
         if($validationSiteWeb != 1)
         {
-            echo "siteweb fail";
+            //echo "siteweb fail";
             return false;
         }
         $validationTelephone = $this->verificationNum($this->getTelephone());
         if ($validationTelephone != 1)
         {
-            echo "telephone fail";
+            //echo "telephone fail";
             return false;
         }
         $validationNumeroRue = $this->verificationNum($this->getNumeroRue());
         if ($validationNumeroRue != 1)
         {
-            echo "numero rue fail";
+            //echo "numero rue fail";
             return false;
         }
         $validationNomRue = $this->verificationAlphaEx($this->getNomRue());
         if ($validationNomRue != 1)
         {
-            echo "nom rue fail";
+            //echo "nom rue fail";
             return false;
         }
         $validationVille = $this->verificationAlphaEx($this->getVille());
         if ($validationVille != 1)
         {
-            echo "ville fail";
+            //echo "ville fail";
             return false;
         }
         $validationProvince = $this->verificationAlphaEx($this->getProvince());
         if ($validationProvince != 1)
         {
-            echo "province fail";
+            //echo "province fail";
             return false;
         }
         $validationCodePostal = $this->verificationCodepostal($this->getCodePostal());
         if ($validationCodePostal != 1)
         {
-            echo "code postal fail";
+            //echo "code postal fail";
             return false;
         }
         /*si tous les test on passer avec success, retourne vrai*/
@@ -200,8 +200,8 @@ class ConfirmationFormulaireAgence {
     public function test($i)
     {
         //echo "<pre>".print_r($i,true)."</pre>";
-        var_dump($i);
-        echo "<br/>";
+        //var_dump($i);
+        //echo "<br/>";
     }
 	
 	/**
