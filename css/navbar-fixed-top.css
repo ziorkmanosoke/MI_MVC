@@ -55,3 +55,17 @@ body {
     padding: 0px;
     margin: 0px;
 }
+
+.navbar label {
+    color: #FFFFFF;
+    padding-left: 5px;
+}
+.navbar label a {
+    color: #FFFFFF;
+    margin-left: 5px;
+}
+.navbar label a:hover {
+    color: #ED2A7B;
+    margin-left: 5px;
+    text-decoration: none;
+}

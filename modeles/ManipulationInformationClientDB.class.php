@@ -12,7 +12,7 @@ class ManipulationInformationClientDB {
 	function __construct ($objet)
 	{
 		$this->setFormulaire($objet);
-		$this->BD = BD::getInstance("e1395342","dbconnect");
+		$this->BD = BD::getInstance("e1395529","dbconnect");
 	}
 	
 		
@@ -108,7 +108,7 @@ $reqInsert ="INSERT INTO `mi_ville` (`ID_ville`, `ID_province`, `ville`) VALUES 
 		if ($userDispo)
 		{
 			//echo "Disponible<br/>";
-			$req = "INSERT INTO `mi_utilisateurs` (`ID_utilisateurs` ,`nom` ,`prenom` ,`courriel` ,`mot_de_passe` ,`sexe` ,`DOB` ,`ID_adresse` ,`ID_forfait` ,`ID_agence` ,`ID_photo` ,`ID_role` ,`telephone_utilisateur` ,`nom_utilisateur`)VALUES (NULL , '".$this->formulaire->getNom()."', '".$this->formulaire->getPrenom()."', '".$this->formulaire->getCourriel()."', '".$this->formulaire->getMotDePasse()."', '".$this->formulaire->getSexe()."', '".$this->formulaire->getDateNaissance()."', '0', '0', '0', '0', '0', '".$this->formulaire->getTelephone()."', '".$this->formulaire->getNomUtilisateur()."');";
+			$req = "INSERT INTO `mi_utilisateurs` (`ID_utilisateurs` ,`nom` ,`prenom` ,`courriel`, `nom_utilisateur` ,`mot_de_passe` ,`sexe` ,`DOB` ,`ID_adresse` ,`ID_forfait` ,`ID_agence` ,`ID_photo` ,`ID_role` ,`telephone_utilisateur`)VALUES (NULL , '".$this->formulaire->getNom()."', '".$this->formulaire->getPrenom()."', '".$this->formulaire->getCourriel()."', '".$this->formulaire->getNomUtilisateur()."', '".$this->formulaire->getMotDePasse()."', '".$this->formulaire->getSexe()."', '".$this->formulaire->getDateNaissance()."', '0', '0', '0', '0', '0', '".$this->formulaire->getTelephone()."');";
 			//var_dump($req);
 			$this->BD->getBD()->query($req);
 			return true;

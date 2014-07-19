@@ -12,7 +12,7 @@
  */
 class infosAgence {
    
-         public function afficheInformationAgence() {
+         public function afficheInformationAgence($aAgence=Array()) {
     ?>
         
 
@@ -58,11 +58,15 @@ class infosAgence {
         <!-- contenu de la page-->
 <article class="col-lg-8 col-md-8 col-sm-12 col-xs-12 well">
     <h1 class="brand">Information Agence</h1>
-
+   <?php  
+       //var_dump($aAgence);
+        foreach($aAgence as $cle => $agence)
+         {                                     
+   ?>
     <article class="form-group row">
        
         <div class="col-sm-4">
-         <img src="img/logo/ceinture21.jpg" class="img-responsive" alt="Responsive image"></div>
+         <img src="img/photos/agence/<?php echo $agence['ID_agence']?>.jpeg" class="img-responsive" alt="Responsive image"></div>
         
          <div class="col-sm-8">
          <p>
@@ -73,43 +77,44 @@ class infosAgence {
     </article>
 
     <article class="form-group ">
-        <label for="inputNom" class="col-sm-4">Compagnie: </label>
-        <label for="inputNom" class="col-sm-8">votre nom de compagnie ici </label>
+        <label for="inputNom" class="col-sm-3">Compagnie : </label>
+        <label for="inputNom" class="col-sm-8"><?php echo $agence['nom_agence']?> </label>
     </article>
 
     <article class="form-group ">
-        <label for="inputCourriel" class="col-sm-4">Courriel: </label>
-        <label for="inputCourriel" class="col-sm-8">votre Courriel ici </label>
+        <label for="inputCourriel" class="col-sm-3">Courriel : </label>
+        <label for="inputCourriel" class="col-sm-8"><?php echo $agence['courriel_agence']?></label>
     </article>
 
     <article class="form-group ">
-        <label for="inputTelephone" class="col-sm-4">Telephonel: </label>
-        <label for="inputTelephone" class="col-sm-8">votre telephone ici </label>
+        <label for="inputTelephone" class="col-sm-3">Téléphone Agence : </label>
+        <label for="inputTelephone" class="col-sm-8"><?php echo $agence['telephone_agence']?></label>
     </article>
 
     <article class="form-group ">
-        <label for="inputAdresse" class="col-sm-4">Adresse: </label>
-        <label for="inputAdresse" class="col-sm-8">votre adresse ici </label>
+        <label for="inputAdresse" class="col-sm-3">URL : </label>
+        <label for="inputAdresse" class="col-sm-8"><?php echo $agence['siteweb']?> </label>
+    </article>    
+    
+    <article class="form-group ">
+        <label for="inputAdresse" class="col-sm-3">Adresse : </label>
+        <label for="inputAdresse" class="col-sm-8"><?php  echo $agence['no_rue'].' '.$agence['rue'].', '.$agence['codepostal']?> </label>
     </article>
 
     <article class="form-group ">
-        <label for="inputNomVille" class="col-sm-4">Ville: </label>
-        <label for="inputNomVille" class="col-sm-8">votre adresse ici </label>
+        <label for="inputNomVille" class="col-sm-3">Ville: </label>
+        <label for="inputNomVille" class="col-sm-8"><?php  echo $agence['ville']?></label>
     </article>
 
-    <article class="form-group ">
-        <label for="inputNomProvince" class="col-sm-4">Province: </label>
-        <label for="inputNomProvince" class="col-sm-8">votre nom de province ici </label>
-    </article>
 
     <article class="form-group">
         <section class="col-sm-10">
-            <button type="button" onClick="#" class="btn btn-success">Modification information</button>
+            <button type="button" class="btn btn-success">Modification information</button>
         </section>
     </article>   
 </article>
  
-
+<?php }?>
 
 
         <!-- fin d'info profile-->

@@ -60,6 +60,7 @@ class visionnerAnnonce {
 		</div>
 	</div><!-- / block3-->
 </div>
+
 	<hr/>
 	 <!--Debut du footer-->
         <?php

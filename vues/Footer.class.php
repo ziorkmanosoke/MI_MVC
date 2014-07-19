@@ -45,19 +45,19 @@ class Footer {
                     <h1>Pages</h1>
                     <ul>
                         <li>
-                            <a href="#">À Propos</a>
+                            <a href="index.php?page=apropos">À Propos</a>
                         </li>
                         <li>
                             <a href="index.php?page=blog">Blog</a>
                         </li>
                         <li>
-                            <a href="#">Termes et conditions</a>
+                            <a href="index.php?page=termesConditions">Termes et conditions</a>
                         </li>
                         <li>
-                            <a href="#">Politique de confidentialité</a>
+                            <a href="index.php?page=politiquesConfidentialite">Politique de confidentialité</a>
                         </li>
                         <li>
-                            <a href="#">Contact</a>
+                            <a href="index.php?page=contact">Contact</a>
                         </li>
                     </ul>
                 </article>
@@ -68,18 +68,18 @@ class Footer {
                     <h1>Dernières publications</h1>
                     <ul>
                         <li>
-                            <a href="#">Rénover sa Maison</a>
+                            <a href="http://www4.gouv.qc.ca/FR/Portail/Citoyens/Evenements/acheter-renover-maison/Pages/accueil.aspx">Rénover sa Maison</a>
                         </li>
                         <li>
-                            <a href="#"></a>Décorer son Chez Soi</li>
+                            <a href="http://www.decormag.com">Décorer sa Maison</a>
                         <li>
-                            <a href="#">Utiliser Paypal</a>
+                            <a href="http://www.paypal.com">Utiliser Paypal</a>
                         </li>
                         <li>
-                            <a href="#">Guide Pour Louer un Bien</a>
+                            <a href="http://www.monappart.ca/statique/files/cahier64pages/64p_monappart.pdf">Guide Pour Louer un Bien</a>
                         </li>
                         <li>
-                            <a href="#">La satisfaction de nos clients</a>
+                            <a href="index.php?page=apropos">La satisfaction de nos clients</a>
                         </li>
                     </ul>
                 </article>
@@ -131,13 +131,11 @@ class Footer {
     </footer>
 
     <!--Fin du footer-->
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/plugins.js"></script>
 

@@ -22,88 +22,11 @@ class Accueil {
 		?>
   
     <!-- recherche principale Début -->
-    <form id="recherche" action="fr/resultats.html">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                    <div class="form-group">
-                        <label for="chercheTexte">Chercher par ville, rue ou code postal</label>
-                        <input type="text" class="form-control" id="chercheTexte" placeholder="Où?">
-                    </div>
-                    <div class="form-inline">
-                        <div class="form-group">
-                            <label for="categorie">Catégorie</label>
-                            <select class="form-control" id="categorie">
-                                <option value="tousCategorie" selected>Toutes</option>
-                                <option value="residentielle">Résidentielle</option>
-                                <option value="commerciale">Commerciale</option>
-                                <option value="multiLogement">Multi logement</option>
-                                <option value="terrain">Terrain</option>
-                                <option value="ferme">Ferme</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="typeDeBien">Type de bien</label>
-                            <select class="form-control" id="typeDeBien">
-                                <option value="tousTypeDeBien" selected>Toutes</option>
-                                <option value="appartement">Appartement</option>
-                                <option value="condo">Condo</option>
-                                <option value="maison">Maison</option>
-                                <option value="chalet">Chalet</option>
-                                <option value="bungalow">Bungalow</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="prix">Prix</label>
-                            <input type="range" name="prix" id="prix" min="0" max="10" step="2">
-                        </div>
-                        <div class="form-group">
-                            <label for="chambres">Chambres</label>
-                            <select class="form-control" id="chambres">
-                                <option value="0" selected>0 et +</option>
-                                <option value="1">1 et +</option>
-                                <option value="2">2 et +</option>
-                                <option value="3">3 et +</option>
-                                <option value="4">4 et +</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="sallesDeBain">Salles de bain</label>
-                            <select class="form-control" id="sallesDeBain">
-                                <option value="0" selected>0 et +</option>
-                                <option value="1">1 et +</option>
-                                <option value="2">2 et +</option>
-                                <option value="3">3 et +</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" id="filtrer">
-                    <div class="form-group">
-                        <label for="FiltrerResultats">Filtrer les résultats</label>
-                        <select class="form-control" id="FiltrerResultats">
-                            <option value="tous" selected>Tous</option>
-                            <option value="vendre">À vendre</option>
-                            <option value="louer">À louer</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="TrierResultats">Trier les résultats</label>
-                        <select class="form-control" id="TrierResultats">
-                            <option value="MoinsCher" selected>Moins cher en premier</option>
-                            <option value="PlusCher">Plus cher en premier</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <button type="submit" id="lancerRecherche" class="btn btn-success col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <span class="glyphicon glyphicon-search"></span>Lancer la recherche</button>
-            </div>
-        </div>
-    </form>
+    <?php
+        $oRecherche = new Recherche();
+        $oRecherche->afficheMenuRecherche();
+    ?>
     <!-- recherche principale fin -->
-
     <div class="container" id="accueil">
         <!-- carousel principale début -->
         <!-- source: http://webdesign.tutsplus.com/articles/twitter-bootstrap-101-the-carousel--webdesign-7442-->

@@ -10,7 +10,7 @@ class ConnectionCompte {
     
 	function __construct ($courriel ="", $mp="")
 	{
-		$this->BD = BD::getInstance("e1395342","dbconnect");
+		$this->BD = BD::getInstance("e1395529","dbconnect");
 		$this->setCourriel($courriel);
 		$this->setMotPasse($mp);
 		$this->setInfoCompte();

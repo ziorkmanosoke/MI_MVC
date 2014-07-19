@@ -5,7 +5,7 @@
 	/*Source et references*/
 	/*http://bootsnipp.com*/
 
-    .row {
+    row {
         margin-bottom: 20px;
     }
 
@@ -51,7 +51,18 @@
     .search-query:focus + button {
         z-index: 3;   
     }
-		
+	
+	/*ajuster la section */
+     .addtocart{
+       margin-top: -5px;
+    }
+
+	/*Definir la taille du icon */
+    .addtocart img{
+        width: 150px;
+        height: 50px;
+    }
+	
 	/*ajouter un bordure pour faire resortir cette section */
     .bordure1{
         border-radius: 10px;
@@ -80,12 +91,11 @@
         margin: 20px 0px;
         text-align: center;
         color: #FFFFFF;
-
     }
     
     /*Centrer le contenu et donner un petit effet*/
     .emphase2{
-        background-color: #4C4A4A;;
+        background-color: #4C4A4A;
         padding: 5px 5px 5px 5px;
         border-radius: 10px;
         height: auto;
@@ -101,30 +111,9 @@
        border-radius: 10px;
     }
 
-    /*Differencier les forfaits*/
-    .base>h4{
-        background-color: #E2DCDE;
-    }
-	/*Differencier les forfaits*/
-	.regulier>h4{
-        background-color: #C9C5C6;
-    }
-	/*Differencier les forfaits*/
-	.base>h4:hover{
-        background-color:#ffffff;
-    }
-	
-	/*Changer la couleur on mouseover*/
-	.regulier >h4:hover{
-        background-color:#ffffff;
-    }
-	/*Changer la couleur on mouseover*/
-	.premium >h4:hover{
-        background-color:#ffffff;
-    }
-	/*Changer la couleur on mouseover*/
-	.premium>h4{
-        background-color:#9E9A9B;
+    /*Faire ressortir le titre*/
+    .emphase1>h4{
+        background-color: rgba(244, 244, 244, 0.87);
     }
 
     /*Faire ressortir le titre*/
@@ -132,24 +121,50 @@
         background-color: #9E9E9E;
         color: #253746;
         padding: 5px 0px 0px 0px;
-        height: auto;
+        height: 100px;
         text-align: center;
     }
-	
-	/*La banniere pour interpeller l'utilisateur*/
+
+	/* La couelur du texte*/
     .callaction h1{
         color: #253746;
     }
-
-	/*La banniere pour interpeller l'utilisateur change de couleur on mouseover*/
+	
+	/* La couelur du texte change on mouseover*/
     .callaction h1:hover{
         color: #ffffff;
     }
-
+	
+	/* La couelur du fond change on mouseover*/
     .callaction:hover{
         background-color: #fa3065;
     }
 
+	/*Faire ressortir le titre*/
+    .callaction1{
+        background-color: #9E9E9E;
+        color: #253746;
+        padding: 5px 0px 0px 0px;
+        height: auto;
+        text-align: center;
+    }
+
+	/* La couelur du texte*/
+    .callaction1 p{
+        color: #ffffff;
+		font-size:15px;
+    }
+	
+	/* La couelur du texte change on mouseover*/
+    .callaction1 p:hover{
+        color: #000000;
+    }
+	
+	/* La couelur du fond change on mouseover*/
+    .callaction1:hover{
+        background-color: #fa3065;
+    }
+	
     /*Alignement du texte*/
     .cta-text {
         text-align: center;
@@ -184,24 +199,178 @@
         color: #000000;
     }
 	
-	/*Mettre le numero de telephone bien en evidence*/
-	.telephone span{
-		font-size:30px;
-		line-height:3px;
+	/*Le positionnement du google map*/
+	#googleMap 
+	{
+		width:100%;
+		height:350px;
 	}
 	
-	/*Ajouter une ombre au bouton*/
-	.shadow a{
-		text-decoration:none;
+	/*Le positionnement de la division pour le google map du google map*/
+	.googlemap
+	{
+		width:100%;
+		height:350px;
+		margin-bottom:10px;
 	}
 	
-	/*Espacer les td*/
-	td{
-		padding:5px;
+	/*Variation de la taille de l'element p*/
+	.representant p:nth-child(1){
+		font-size:12px;
+		font-weight:bold;
 	}
 	
-	/*Espacer le input pour les forfaits*/
-	input{
-		margin:5px;
+	/*Variation de la taille de l'element p*/
+	.representant p:nth-child(2){
+		font-size:10px;
 	}
 	
+	/*Faire ressortir le texte*/
+	.nousjoindre p span{
+		font-size:12px;
+		font-weight:bold;
+		color:#000000;
+	}
+	
+	/*Donner un petit espacement sur la gauche*/
+	.nousjoindre  li{
+		list-style-type:none;
+		font-size:13px;
+		padding-left:20px;
+	}
+	
+	/*Pour differencier la couleur*/
+	.nousjoindre  span{
+		color:#4C4A4A;
+	}
+	
+	/*Centrer les coordonnnees */
+	.nousjoindre  i{
+		font-size:14px;
+		padding-left:20px;
+	}
+	
+	/*Centrer les coordonnnees sur les ecrans de petites tailles*/
+	@media screen and (max-width: 768px) {
+	  .nousjoindre{
+		text-align:center;
+	  }
+	}
+	
+	/*Appliquer un espace de demarquement*/
+	.bordure{
+	border: 1px solid #000000;
+	box-shadow:2px 2px 8px #000000;
+	margin-bottom:10px;
+	margin-top:10px;
+	padding-top:10px;
+	}
+	
+	/*Faire ressortir le texte*/
+	.apropos p span{
+		font-size:15px;
+		font-weight:bold;
+		color:#000000;
+	}
+	
+	/*Faire ressortir le texte*/
+	.politique p span{
+		font-size:15px;
+		font-weight:bold;
+		color:#000000;
+	}
+	
+	/*Augmenter la taille du titre*/
+	.politique h1 span{
+	font-size:25px;
+	}
+	
+	/*Laisser un espacement sur la gauche*/
+	.politique p{
+		margin-left:20px;
+	}
+	
+	/*Jouer avec la taille des sous titres*/
+	.politique h2{
+		font-size:16px;
+		font-weight:bold;
+	}
+	
+	/*Jour avec l'espacement*/
+	.nousjoindre.well.well-sm{
+		margin-left:10px;
+		padding-left:20px;
+	}
+		
+	/*Centrer les coordonnnees sur les ecrans de petites tailles*/
+	@media screen and (max-width: 768px) {
+	  .nousjoindre.well.well-sm{
+		margin-left:-20px;
+		padding-left:2px;
+	}
+	}
+	
+	/*Fixer la hauteur du thumbnail*/
+	#forfait .thumbnail {
+		height:205px;
+	}
+	
+	/*Fixer la hauteur des images du thumbnail*/
+	#forfait .thumbnail img{
+		height:115px;
+	}
+	
+	/*Appliquer une image de fond*/
+	.coordonnees{
+		background-image: url('../img/slide/slide6.jpg');
+	}
+	
+	/*Changer l'image de fond pourles ecran de 992px et moins*/
+	@media screen and (max-width: 992px) {
+	  .coordonnees{
+		background-image: url('../img/slide/slide6.jpg');
+	}
+	}
+	
+	/*CSS pour le formulaire de contact*/
+	.envoyerMessage{
+		background-color:#ffffff;
+		height:auto;
+		border:2px solid #000000;
+		padding-left:115px;
+	}
+	
+	/*Centrer le commentaire de l'utilisateur*/
+	@media screen and (max-width: 768px) {
+	  .envoyerMessage{
+		padding-left:20px;
+	}
+	}
+
+	/*Gerer l'affichage des erreurs*/
+	#contactMI span{
+		display:none;
+	}
+	#contactMI input:focus:invalid, textarea:focus:invalid{
+		border-color:#ff0000;
+	}
+	
+	#contactMI input:focus:invalid + span, textarea:focus:invalid + span{
+		display:block;
+		color:#ff0000;
+	}
+	#contactMI input:focus:valid, textarea:focus:valid{
+		border-color:#56c93f;
+	}
+	
+	
+	
+	
+	
+
+	
+  
+  
+ 
+ 
+ 

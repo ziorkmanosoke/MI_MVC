@@ -34,7 +34,7 @@ class Header {
 
                 <!-- Bootstrap core CSS -->
                 <link rel="stylesheet" href="css/bootstrap.min.css">
-
+                
                 <!-- Custom styles for this template -->
                 <link rel="stylesheet" href="css/navbar-fixed-top.css">
                 <link rel="stylesheet" href="css/main.css">
@@ -46,10 +46,9 @@ class Header {
                 <!-- Chargement font-awesome  -->
                 <link href="css/font-awesome.css" rel="stylesheet">
                 <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-               
+                
                 <!-- Chargement style pour espace agence  -->
                 <link href="css/mainAgence.css" rel="stylesheet">
-                
                 <!-- Just for debugging purposes. Don't actually copy this line! -->
                 <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -57,7 +56,7 @@ class Header {
                 <!--[if lt IE 9]>
                   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
                   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-                <![endif]--> 
+                <![endif]-->
             </head>
 <?php
 		

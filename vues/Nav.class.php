@@ -41,7 +41,6 @@ class Nav {
                          </a>
                      </li>
                  </ul>
-                 <?php if ($_GET['page']<>'agenceAccueil') { ?>
                  <?php if($_SESSION['ID_utilisateur'] == NULL)
                  {
                  echo '<form action="index.php?page=connexionCompte" class="navbar-form navbar-left" method="POST">
@@ -58,41 +57,20 @@ class Nav {
                  } 
                  else
                 {
-                    //echo $_SESSION['prenom_utilisateur']." ".$_SESSION['nom_utilisateur'];
                     echo '<form action="index.php?page=deconnexionCompte" class="navbar-form navbar-left" method="POST">
                          <div class="form-group">
-                            <label for="Prenom" class="control-label">Bienvenue <a href="index.php?page=agenceAccueil">'.$_SESSION['prenom_utilisateur'].' '.$_SESSION['nom_utilisateur'].'</a></label>
+                            <label for="Prenom" class="control-label">Bienvenue <a href="index.php?page=agenceAccueil&ref='.$_SESSION['ID_utilisateur'].'">'.$_SESSION['prenom_utilisateur'].' '.$_SESSION['nom_utilisateur'].'</a></label>
                          </div>
                          <button type="submit" class="btn btn-success">Déconnexion</button>
                      </form>';
                 }
                  ?>
-                 <?php } ?>
                  
                  <!-- nav -->
                     <nav>
                             <ul class="nav navbar-nav navbar-right">
-                                <li class="dropdown <?php echo ($pageActive == 'accueil' ? 'active' : '' ) ?>">
-                                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Acheter
-                                        <b class="caret"></b>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="#">Résidentielle</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Commerciale</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Multi logement</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Terrain</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Ferme</a>
-                                        </li>
-                                    </ul>
+                                <li class="<?php echo ($pageActive == 'accueil' ? 'active' : '' ) ?>">
+                                    <a href="index.php?page=resultats">Acheter</a>
                                 </li>
                                 <li class="dropdown">
                                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Vendre
@@ -114,7 +92,7 @@ class Nav {
                                     <a href="index.php?page=forfait">Nos Forfaits</a>
                                 </li>
                                 <li>
-                                    <a href="#">Contact</a>
+                                    <a href="index.php?page=contact">Contact</a>
                                 </li>
                             </ul>
                         </nav>

@@ -13,7 +13,7 @@
  */
 class ProfilResponsableAgence {
      
-    public function afficheProfilResponsable() {
+    public function afficheProfilResponsable($aUsers=Array()) {
     ?>
         <div class="container-fluid block3">
     <!-- sidebar -->
@@ -51,70 +51,65 @@ class ProfilResponsableAgence {
         <!-- contenu de la page-->
         <article class="col-lg-8 col-md-8 col-sm-12 col-xs-12 well">
             <h1 class="brand">Mon profil</h1>
-
+            <?php  
+            //print_r($aUsers);
+                foreach($aUsers as $cle => $user)
+                   {                                     
+            ?>
             <article class="form-group ">
-                <p> <img src="img/placeholder.jpg" class="img-responsive img-thumbnail" alt="Responsive image">
+                <p> <img src="img/photos/user/<?php echo $user['ID_user']?>.jpeg" class="img-responsive img-thumbnail" alt="Responsive image">
                     <a class="btn btn-default" href="#" role="button">Changer image</a>
                 </p>
             </article>
 
             <article class="form-group ">
-                <label for="inputNom" class="col-sm-4">Nom: </label>
-                <label for="inputNom" class="col-sm-8">votre nom ici </label>
+                <label for="inputNom" class="col-sm-3">Nom : </label>
+                <label for="inputNom" class="col-sm-8"><?php echo $user['nom']?></label>
             </article>
 
             <article class="form-group ">
-                <label for="inputPrenom" class="col-sm-4">Prenom: </label>
-                <label for="inputPrenom" class="col-sm-8">votre Prenom ici </label>
+                <label for="inputPrenom" class="col-sm-3">Prenom : </label>
+                <label for="inputPrenom" class="col-sm-8"><?php echo $user['prenom']?> </label>
+            </article>
+
+           <article class="form-group ">
+                <label for="inputSexe" class="col-sm-3">Sexe: </label>
+                <label for="inputSexe" class="col-sm-8"><?php echo $user['sexe']?></label>
             </article>
 
             <article class="form-group ">
-                <label for="inputSexe" class="col-sm-4">Sexe: </label>
-                <label for="inputSexe" class="col-sm-8">votre Sexe ici </label>
-            </article>
-
-            <article class="form-group ">
-                <label for="inputDoB" class="col-sm-4">Date de naissance: </label>
-                <label for="inputDoB" class="col-sm-8">votre date de naissance ici </label>
+                <label for="inputDoB" class="col-sm-3">Date de naissance: </label>
+                <label for="inputDoB" class="col-sm-8"><?php echo $user['DOB']?></label>
             </article>
 
             <article class="form-group">
-                <label for="inputCourriel" class="col-sm-4">Courriel: </label>
-                <label for="inputCourriel" class="col-sm-8">votre Courriel ici </label>
+                <label for="inputCourriel" class="col-sm-3">Courriel: </label>
+                <label for="inputCourriel" class="col-sm-8"><?php echo $user['courriel']?></label>
+            </article>
+
+            <article class="form-group">
+                <label for="inputCourriel" class="col-sm-3">Téléphone: </label>
+                <label for="inputCourriel" class="col-sm-8"><?php echo $user['telephone_utilisateur']?></label>
             </article>
 
             <article class="form-group ">
-                <label for="inputNomVille" class="col-sm-4">Nom de ville: </label>
-                <label for="inputNomVille" class="col-sm-8">votre nom de ville ici </label>
+                <label for="inputNomVille" class="col-sm-3">Ville: </label>
+                <label for="inputNomVille" class="col-sm-8"><?php  echo $user['ville']?></label>
             </article>
 
-            <article class="form-group ">
-                <label for="inputNomProvince" class="col-sm-4">Nom de province: </label>
-                <label for="inputNomProvince" class="col-sm-8">votre nom de province ici </label>
-            </article>
 
             <article class="form-group">
                 <section class="col-sm-8">
-                    <button type="button" onClick="location.href='choixForfais.html'" class="btn btn-success">Modification information</button>
+                    <button type="button"  class="btn btn-success">Modification information</button>
+                    <!--onClick="location.href='choixForfais.html'"-->
                 </section>
             </article>   
         </article>
-
+        <?php }?>
         <!-- fin d'info profile-->
 
         <!-- </div> -->
     </div><!-- / block3-->
-
-
-
-
-
-
-
-
-
-
-
 
 
    <div class="container">

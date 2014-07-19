@@ -39,13 +39,8 @@ h5{
 
 }
 
-.text-center> ul > li {
-	border: solid 2px #fa3065;
-	-moz-border-radius: 10px 10px 0 0; 
-   -webkit-border-radius: 10px 10px 0 0; 
-   border-radius: 10px 10px 0 0;        
-   -webkit-border-top-left-radius: 10px; /* pour Chrome */ 
-   -webkit-border-top-right-radius: 10px; /* pour Chrome */ 
+.block1 .text-center> ul > li {
+border: hidden;
 
 }
 
@@ -59,7 +54,7 @@ h5{
 	width: 30px;
 }
 .ajouterannonce{
-		background-color: #253746;
+            background-color: #DDDDDD;  /*#253746*/
 	   -moz-border-radius: 10px 10px 10px 10px; 
 	   -webkit-border-radius: 10px 10px 10px 10px; 
 	   border-radius: 10px 10px 10px 10px;        
@@ -69,7 +64,7 @@ h5{
 }
 
 p > a {
-  color: #fff;
+  color: #fa3065;
   font-size: 18px;
 }
 p > a:hover {
@@ -93,6 +88,7 @@ small{
 	font-size: 10px;
 }
 .wellForm {
+        margin-top: 15px;
 	background-color:#f5f5f5;
 	border:1px solid #fa3065;
 
@@ -185,4 +181,55 @@ input[type=checkbox] {
 
 .containerAgence{
   background-color: #fff;
+}
+
+/***
+source : http://www.csscheckbox.com/checkbox/7283/gray-wafer-radio/
+**/
+input[type=radio].css-checkbox {
+        display:none;
+}
+
+input[type=radio].css-checkbox + label.css-label {
+        padding-left:30px;
+        margin-left: 50px;
+        height:25px; 
+        display:inline-block;
+        line-height:25px;
+        background-repeat:no-repeat;
+        background-position: 0 0;
+        font-size:25px;
+        vertical-align:middle;
+        cursor:pointer;
+}
+
+input[type=radio].css-checkbox:checked + label.css-label {
+        background-position: 0 -25px;
+}
+label.css-label {
+        background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_d6fcea0df021ca8081de25304bb393a2.png);
+}
+
+/*==================================================**/
+
+label{
+    margin-left: 10px;
+}
+
+span.erreur{
+        float: right;
+        margin-right: 20px;
+	background-color: rgba(255,0,0,0.75);
+	/*padding : 5px;*/
+	font-size:10px;
+	color:#F5FBFD;
+	font-weight: bold;
+	height: 15px;
+	line-height: 10px;
+	border-radius: 5px;
+	
+}
+
+.evaluation{
+    font-size: 12px;
 }

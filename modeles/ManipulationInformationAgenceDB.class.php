@@ -13,7 +13,7 @@ class ManipulationInformationAgenceDB {
 	function __construct ($objet)
 	{
 		$this->setFormulaire($objet);
-		$this->BD = BD::getInstance("e1395342","dbconnect");
+		$this->BD = BD::getInstance("e1395529","dbconnect");
 	}
 	
 		
@@ -87,7 +87,7 @@ $reqInsert ="INSERT INTO `mi_ville` (`ID_ville`, `ID_province`, `ville`) VALUES 
 	/*Verifie si le nom utilisateur est disponible dans la db et retourne true si disponible et false si utlise*/
 	private function verificationDisponibilite()
 	{
-		$req = "SELECT * FROM `mi_agence` WHERE nom = '".$this->formulaire->getNom()."' AND courriel = '".$this->formulaire->getCourriel()."';";
+		$req = "SELECT * FROM `mi_agence` WHERE nom_agence = '".$this->formulaire->getNom()."' AND courriel_agence = '".$this->formulaire->getCourriel()."';";
 		$idp = $this->BD->getBD()->query($req);
 		if($idp->num_rows <= 0)
 		{
@@ -110,7 +110,7 @@ $reqInsert ="INSERT INTO `mi_ville` (`ID_ville`, `ID_province`, `ville`) VALUES 
 		if ($userDispo)
 		{
 			//echo "Disponible<br/>";
-			$req = "INSERT INTO `mi_agence` (`ID_agence`, `nom`, `courriel`, `siteweb`, `telephone`, `ID_adresse`, `ID_photo`) VALUES (NULL, '".$this->formulaire->getNom()."', '".$this->formulaire->getCourriel()."', '".$this->formulaire->getSiteWeb()."', '".$this->formulaire->getTelephone()."', '0', '0');";
+			$req = "INSERT INTO `mi_agence` (`ID_agence`, `nom_agence`, `courriel_agence`, `siteweb`, `telephone_agence`, `ID_adresse`, `ID_photo`) VALUES (NULL, '".$this->formulaire->getNom()."', '".$this->formulaire->getCourriel()."', '".$this->formulaire->getSiteWeb()."', '".$this->formulaire->getTelephone()."', '0', '0');";
 			//var_dump($req);
 			$this->BD->getBD()->query($req);
 			/*retourne le ID fraichement creez de l'agence*/

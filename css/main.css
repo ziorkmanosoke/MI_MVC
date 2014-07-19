@@ -26,14 +26,35 @@ body {
     padding: 10px 0px;
     color: #253746;
 }
-
+label {
+    display: inline-block;
+    font-weight: 400;
+}
 /* ==========================================================================
    #resultat
    ========================================================================== */
-
+#resultat .panneaux{
+    padding: 0px;
+}
 #resultat > div > div {
     background-color: #CCCCCC;
+    padding: 25px 10px 10px 10px;
+}
+
+#resultat > article >div{
+    border-top: solid 4px #CCCCCC;
+    border-left: solid 4px #CCCCCC;
+    border-right: solid 4px #CCCCCC;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     padding: 10px;
+}
+#resultat p  {
+    text-align: center;
+    padding-top: 5px;
+}
+#resultat p span {
+    color: #fa3065;
 }
 .panel-resultat > .panel-body {
     background-color: #E7E7E7;
@@ -138,19 +159,19 @@ body {
     border-bottom-right-radius: 5px;
     padding: 20px 10px;
 }
+.detailsBody img{
+    width: 100%;
+}
 .detailsBody h1{
     text-align: center;
     padding: 10px 0px;
     color: #253746;
 }
 .sidebar{
-    background-color: #ccc;
     border-radius: 5px;
     margin-bottom: 20px;
 }
-.sidebar > article {
-    padding: 10px 0px;
-}
+
 .tab-content {
     border-bottom: 1px solid #DDDDDD;
     border-left: 1px solid #DDDDDD;
@@ -199,11 +220,16 @@ body {
     color: #FFFFFF;
 }
 .panel-similaires img {
-    padding-right: 25px;
-    padding-bottom: 25px;
     width: 150px;
+    border: solid 1px #00BCC7;
 }
-
+.panel-similaires ul{
+    list-style: none;
+    padding: 15px 0px 0px 0px;
+}
+.panel-similaires button{
+    margin-top: 10px;
+}
 /* ==========================================================================
    #Les panneaux
    ========================================================================== */
@@ -426,6 +452,9 @@ body {
 #lancerRecherche {
     margin: 10px 0px;
 }
+#prixScriptVal{
+    font-size: 8pt;
+}
 /* ==========================================================================
    button
    ========================================================================== */
@@ -579,13 +608,11 @@ footer a:hover {
     padding: 10px 0px;
 }
 
-/*--Fix pour glyphicons---*/
-
 @font-face {
     font-family: 'Glyphicons Halflings';
-    src: url('fonts/glyphicons-halflings-regular.eot');
-    src: url('fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
-         url('fonts/glyphicons-halflings-regular.woff') format('woff'), 
-         url('fonts/glyphicons-halflings-regular.ttf') format('truetype'), 
-         url('fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+    src: url('../fonts/glyphicons-halflings-regular.eot');
+    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
+         url('../fonts/glyphicons-halflings-regular.woff') format('woff'), 
+         url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), 
+         url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
