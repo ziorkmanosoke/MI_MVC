@@ -12,7 +12,7 @@ class ManipulationInformationClientDB {
 	function __construct ($objet)
 	{
 		$this->setFormulaire($objet);
-		$this->BD = BD::getInstance("e1395529","dbconnect");
+		$this->BD = BD::getInstance("e1395342","dbconnect");
 	}
 	
 		

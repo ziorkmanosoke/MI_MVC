@@ -10,7 +10,7 @@ class Villes {
             
         function __construct ()
         {
-            $this->DB = BD::getInstance("e1395529", "dbconnect");
+            $this->DB = BD::getInstance("e1395342", "dbconnect");
 
         }
 
